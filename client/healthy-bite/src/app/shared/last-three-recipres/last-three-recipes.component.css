@@ -1,0 +1,65 @@
+.recipe-section {
+    background: linear-gradient(
+      0deg,
+      rgb(230 111 22 / 84%) 0%,
+      rgba(232, 157, 81, 0.066) 40%,
+      rgba(246, 232, 191, 0) 100%
+    );
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center; /* Center the title */
+    margin-bottom: 20px; /* Add space between sections */
+  }
+  
+  .recipe-section h2 {
+    font-family: "Dancing Script", cursive;
+  }
+  
+  .recipe-cards {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap */
+    justify-content: center;
+  }
+  
+  .recipe-card {
+    width: calc(33.33% - 20px); /* Adjust for margin between cards */
+    margin: 10px; /* Add margin between cards */
+    position: relative;
+    transition: transform 0.3s ease; /* Add transition for hover effect */
+  }
+  
+  .recipe-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .recipe-link {
+    display: block;
+    text-decoration: none;
+  }
+  
+  .recipe-image {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 0px 10px 2px rgb(0 0 0 / 50%);
+    border-radius: 180px;
+  }
+  
+  .recipe-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    margin: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .section-title {
+    margin-top: 20px; /* Add space between title and cards */
+  }
+  
