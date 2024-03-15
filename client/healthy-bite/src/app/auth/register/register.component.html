@@ -1,24 +1,24 @@
 <div class="container">
     <div class="form-container">
-        <form id="register-form" class="form">
+        <form id="register-form" class="form" [formGroup]="registerForm" (ngSubmit)="registerHandler()">
             <h2>Register</h2>
             <div class="input-container">
-                <input type="text" placeholder="username" name="username">
+                <input type="text" placeholder="username" name="username" formControlName="username">
                 <i class="fas fa-user"></i>
             </div>
             <div class="input-container">
-                <input type="email" placeholder="email" name="email">
+                <input type="email" placeholder="email" name="email" formArrayName="email" formControlName="email">
                 <i class="fas fa-envelope"></i>
             </div>
             <ng-container formGroupName="passGroup">
                 <div class="input-container">
                     <input type="password" placeholder="password"
-                        name="password">
+                        name="password" formControlName="password">
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="input-container">
                     <input type="password"
-                        placeholder="repeat password" name="rePass">
+                        placeholder="repeat password" name="rePass" formControlName="rePass">
                     <i class="fas fa-lock"></i>
                 </div>
             </ng-container>
