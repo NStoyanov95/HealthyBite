@@ -8,6 +8,6 @@ import { CatalogBtnComponent } from './catalog-btn/catalog-btn.component';
 @NgModule({
   declarations: [SocialMediaIconsComponent, ContactUsInfoComponent, HomeImageComponent, CatalogBtnComponent],
   imports: [CommonModule],
-  exports: [SocialMediaIconsComponent, ContactUsInfoComponent, HomeImageComponent],
+  exports: [SocialMediaIconsComponent, ContactUsInfoComponent, HomeImageComponent, CatalogBtnComponent],
 })
 export class SharedModule {}
