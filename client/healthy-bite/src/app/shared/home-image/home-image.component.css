@@ -1,0 +1,20 @@
+.img {
+    filter: drop-shadow(22px 16px 21px black);
+}
+.img img{
+    height: 250px;
+}
+
+@media (max-width: 768px) {
+    .img img {
+        height: 200px; /* Set height to auto to maintain aspect ratio */
+        max-width: 100%; /* Ensure the image does not exceed its container */
+    }
+}
+@media (max-width: 1300px) {
+    .img img {
+        height: 200px;
+        width: 500px;
+        max-width: 100%;
+    }
+}
