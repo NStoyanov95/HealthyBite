@@ -1,1 +1,30 @@
-<p>register works!</p>
+<div class="container">
+    <div class="form-container">
+        <form id="register-form" class="form">
+            <h2>Register</h2>
+            <div class="input-container">
+                <input type="text" placeholder="username" name="username">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-container">
+                <input type="email" placeholder="email" name="email">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <ng-container formGroupName="passGroup">
+                <div class="input-container">
+                    <input type="password" placeholder="password"
+                        name="password">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="input-container">
+                    <input type="password"
+                        placeholder="repeat password" name="rePass">
+                    <i class="fas fa-lock"></i>
+                </div>
+            </ng-container>
+            <button>Register</button>
+            <p>Already have an account? <a href="#"
+                    id="login-link">Login</a></p>
+        </form>
+    </div>
+</div>
