@@ -6,6 +6,6 @@ import { ContactUsInfoComponent } from './contact-us-info/contact-us-info.compon
 @NgModule({
   declarations: [SocialMediaIconsComponent, ContactUsInfoComponent],
   imports: [CommonModule],
-  exports: [SocialMediaIconsComponent],
+  exports: [SocialMediaIconsComponent, ContactUsInfoComponent],
 })
 export class SharedModule {}
