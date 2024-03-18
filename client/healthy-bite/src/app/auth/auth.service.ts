@@ -12,6 +12,6 @@ export class AuthService {
   register(email: string, username: string, password: string, rePass: string) {
     const body = { email, username, password, rePass };
 
-    return this.http.post<User>(`${environment.apiUrl}/user/register`, body);
+    return this.http.post<User>(`${environment.apiUrl}user/register`, body);
   }
 }

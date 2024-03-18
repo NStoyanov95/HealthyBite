@@ -8,6 +8,7 @@ import { MainModule } from './main/main.module';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     MainModule,
+    HttpClientModule,
     SharedModule,
     AuthModule,
     ReactiveFormsModule

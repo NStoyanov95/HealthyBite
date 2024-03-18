@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +9,11 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   registerForm = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(3)]],
@@ -24,9 +30,27 @@ export class RegisterComponent {
     }),
   });
 
+  registerHandler() {
+    const email = this.registerForm.get('email')?.value;
+    const username = this.registerForm.get('username')?.value;
+    const password = this.registerForm.get('passGroup.password')?.value;
+    const rePass = this.registerForm.get('passGroup.rePass')?.value;
 
-  registerHandler(){
-    console.log(this.registerForm.value);
-    
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    this.authService
+      .register(email!, username!, password!, rePass!)
+      .subscribe((data) => {
+        const { _id, email, username, accessToken } = data;
+
+        localStorage.setItem('_id', JSON.stringify(_id));
+        localStorage.setItem('email', JSON.stringify(email));
+        localStorage.setItem('username', JSON.stringify(username));
+        localStorage.setItem('accessToken', JSON.stringify(accessToken));
+      });
+
+    this.router.navigate(['/']);
   }
 }
