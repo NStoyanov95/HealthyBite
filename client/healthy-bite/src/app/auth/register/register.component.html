@@ -47,7 +47,8 @@
                 <div class="input-container">
                     <input type="password"
                         placeholder="repeat password" name="rePass"
-                        formControlName="rePass" [class]="registerForm.get('passGroup')?.errors?.['passwordMatchValidator'] ? 'ng-invalid' : '' ">
+                        formControlName="rePass"
+                        [class]="registerForm.get('passGroup')?.errors?.['passwordMatchValidator'] ? 'ng-invalid' : '' ">
                     <i class="fas fa-lock"></i>
                 </div>
                 <ng-container
