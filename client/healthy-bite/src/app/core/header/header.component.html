@@ -4,9 +4,13 @@
         <button routerLink="/">Home</button>
         <button routerLink="/recipes/catalog">Catalog</button>
         <button>About</button>
-        <button routerLink="/recipes/create">Add Recipe</button>
-        <button>Logout</button>
-        <button routerLink="/login">Login</button>
-        <button routerLink="/register">Register</button>
+        <ng-container *ngIf="isLogged">
+            <button routerLink="/recipes/create">Add Recipe</button>
+            <button>Logout</button>
+        </ng-container>
+        <ng-container *ngIf="!isLogged">
+            <button routerLink="/login">Login</button>
+            <button routerLink="/register">Register</button>
+        </ng-container>
     </nav>
 </header>

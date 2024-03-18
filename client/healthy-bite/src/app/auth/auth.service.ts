@@ -9,6 +9,10 @@ import { environment } from 'src/environments/environment.development';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
+  get isLogged(): boolean {
+    return !!localStorage.getItem('accessToken');
+  }
+
   register(email: string, username: string, password: string, rePass: string) {
     const body = { email, username, password, rePass };
 
