@@ -18,4 +18,8 @@ export class AuthService {
 
     return this.http.post<User>(`${environment.apiUrl}user/register`, body);
   }
+
+  logout(){
+    localStorage.clear();
+  }
 }

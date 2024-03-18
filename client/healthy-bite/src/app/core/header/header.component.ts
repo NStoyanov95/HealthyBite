@@ -12,4 +12,8 @@ export class HeaderComponent {
   get isLogged(): boolean {
     return this.authService.isLogged;
   }
+
+  logoutHandler(){
+    this.authService.logout()
+  }
 }
