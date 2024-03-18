@@ -1,13 +1,13 @@
 <div class="container">
     <div class="form-container">
-      <form id="login-form" class="form">
+      <form id="login-form" class="form" [formGroup]="loginForm" (ngSubmit)="loginHandler()">
         <h2>Login</h2>
         <div class="input-container">
-          <input id="email" type="text" name="email" placeholder="email" />
+          <input id="email" type="text" name="email" placeholder="email" formControlName="email"/>
           <i class="fas fa-user"></i>
         </div>
         <div class="input-container">
-          <input id="password" type="password" name="password" placeholder="password">
+          <input id="password" type="password" name="password" placeholder="password" formControlName="password"/>
           <i class="fas fa-lock"></i>
         </div>
         <button>Login</button>

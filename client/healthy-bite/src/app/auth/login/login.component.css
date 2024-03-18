@@ -70,12 +70,6 @@
   button:hover {
     background-color: #ff8c00;
   }
-  input.ng-valid {
-    box-shadow: 0 0 0 2px rgba(29, 174, 0, 0.357);
-  }
-  input.ng-invalid {
-    box-shadow: 0 0 0 2px rgba(242, 28, 17, 0.256);
-  }
   
   .error{
     font-size: 12px ;
