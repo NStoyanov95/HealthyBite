@@ -18,8 +18,8 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: CreateRecipeComponent
-      }
+        component: CreateRecipeComponent,
+      },
     ],
   },
 ];
