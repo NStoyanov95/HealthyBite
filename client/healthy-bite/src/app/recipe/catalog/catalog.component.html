@@ -2,7 +2,7 @@
     <h1>Recipes Catalog</h1>
     <div class="bottom-section">
         <div class="recipe-card" *ngFor="let recipe of recipes">
-            <a class="recipe-link" [routerLink]="'recipe/details/'+recipe._id">
+            <a class="recipe-link" [routerLink]="'/recipes/details/'+recipe._id">
                 <img src="{{recipe.imageUrl}}" alt="Recipe Image"
                     class="recipe-image">
                 <h2 class="recipe-title">{{recipe.recipeName}}</h2>
