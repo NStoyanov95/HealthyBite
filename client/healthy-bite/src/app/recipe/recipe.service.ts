@@ -12,4 +12,10 @@ export class RecipeService {
   getAllRecipes() {
     return this.http.get<Recipe[]>(`${environment.apiUrl}/recipes/catalog`);
   }
+
+  getSingleRecipe(recipeId: string) {
+    return this.http.get<Recipe>(
+      `${environment.apiUrl}/recipes/details/${recipeId}`
+    );
+  }
 }
