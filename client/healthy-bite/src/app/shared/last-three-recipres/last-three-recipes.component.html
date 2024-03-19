@@ -1,25 +1,12 @@
 <div class="recipe-section">
     <h2 class="section-title">Last Three Recipes</h2>
     <div class="recipe-cards">
-        <div class="recipe-card">
-            <a href="/" class="recipe-link">
-                <img src="https://www.foodandwine.com/thmb/Wd4lBRZz3X_8qBr69UOu2m7I2iw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-cheese-pizza-FT-RECIPE0422-31a2c938fc2546c9a07b7011658cfd05.jpg" alt="Recipe 1"
+        <div class="recipe-card" *ngFor="let recipe of recipes">
+            <a [routerLink]="'/recipes/details/'+recipe._id"
+                class="recipe-link">
+                <img src="{{recipe.imageUrl}}" alt="Recipe 1"
                     class="recipe-image">
-                <h3 class="recipe-title">Pizza</h3>
-            </a>
-        </div>
-        <div class="recipe-card">
-            <a href="/" class="recipe-link">
-                <img src="https://www.foodandwine.com/thmb/Wd4lBRZz3X_8qBr69UOu2m7I2iw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-cheese-pizza-FT-RECIPE0422-31a2c938fc2546c9a07b7011658cfd05.jpg" alt="Recipe 1"
-                    class="recipe-image">
-                <h3 class="recipe-title">Pizza</h3>
-            </a>
-        </div>
-        <div class="recipe-card">
-            <a href="/" class="recipe-link">
-                <img src="https://www.foodandwine.com/thmb/Wd4lBRZz3X_8qBr69UOu2m7I2iw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-cheese-pizza-FT-RECIPE0422-31a2c938fc2546c9a07b7011658cfd05.jpg" alt="Recipe 1"
-                    class="recipe-image">
-                <h3 class="recipe-title">Pizza</h3>
+                <h3 class="recipe-title">{{recipe.recipeName}}</h3>
             </a>
         </div>
     </div>
