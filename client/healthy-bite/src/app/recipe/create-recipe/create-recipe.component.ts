@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Recipe } from 'src/app/types/recipe';
 import { RecipeService } from '../recipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-recipe',
@@ -9,7 +10,11 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./create-recipe.component.css'],
 })
 export class CreateRecipeComponent {
-  constructor(private fb: FormBuilder, private recipeService: RecipeService) {}
+  constructor(
+    private fb: FormBuilder,
+    private recipeService: RecipeService,
+    private router: Router
+  ) {}
 
   createRecipeForm = this.fb.group({
     recipeName: ['', Validators.required],
@@ -38,6 +43,7 @@ export class CreateRecipeComponent {
     owner = owner.replace(/^"(.*)"$/, '$1');
     this.recipeService.createRecipe(recipeData, owner).subscribe((data) => {
       this.createRecipeForm.reset();
+      this.router.navigate(['/recipes/catalog'])
     });
   }
 }
