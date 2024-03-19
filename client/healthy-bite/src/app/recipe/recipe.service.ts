@@ -21,4 +21,11 @@ export class RecipeService {
   getLastThreeRecipes() {
     return this.http.get<Recipe[]>(`${environment.apiUrl}/recipes/lastThree`);
   }
+
+  createRecipe(recipeData: Recipe, owner: string) {
+    return this.http.post<Recipe>(`${environment.apiUrl}/recipes/create`, {
+      recipeData,
+      owner,
+    });
+  }
 }
