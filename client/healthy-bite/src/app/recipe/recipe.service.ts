@@ -18,4 +18,7 @@ export class RecipeService {
       `${environment.apiUrl}/recipes/details/${recipeId}`
     );
   }
+  getLastThreeRecipes() {
+    return this.http.get<Recipe[]>(`${environment.apiUrl}/recipes/lastThree`);
+  }
 }
