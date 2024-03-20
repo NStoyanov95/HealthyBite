@@ -95,6 +95,7 @@
   }
   
   .details-btn {
+    margin: 15px;
     background-color: #ff6347; /* Coral color */
     color: #fff; /* White text color */
     border: none;
