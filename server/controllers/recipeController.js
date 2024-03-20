@@ -15,7 +15,6 @@ router.post("/create", async (req, res) => {
   try {
     const recipeData = req.body.recipeData;
     recipeData.owner = req.body.owner;
-    console.log(req.body.owner);
     const recipe = await recipeService.create(recipeData);
     res.json(recipe);
   } catch (error) {
@@ -45,8 +44,8 @@ router.get("/lastThree", async (req, res) => {
 
 router.delete("/delete/:recipeId", async (req, res) => {
   const recipeId = req.params.recipeId;
-  await recipeService.deleteRecipe(recipeId);
-  res.json({ ok: true });
+  const recipe = await recipeService.deleteRecipe(recipeId);
+  res.json(recipe);
 });
 
 module.exports = router;
