@@ -30,4 +30,10 @@ export class RecipeDetailsComponent implements OnInit {
       this.recipe = data;
     });
   }
+
+
+  handleDelete(){
+    console.log('Item deleted!');
+    
+  }
 }
