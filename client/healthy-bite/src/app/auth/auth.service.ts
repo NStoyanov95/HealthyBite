@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../types/user';
+import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +26,8 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear();
+    return this.http
+      .post<User>('/api/users/logout', {})
+      .pipe(tap(() => localStorage.clear()));
   }
 }
