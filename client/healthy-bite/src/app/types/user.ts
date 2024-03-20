@@ -3,4 +3,5 @@ export interface User {
   email: string;
   username: string;
   accessToken?: string;
+  favorite: string[];
 }
