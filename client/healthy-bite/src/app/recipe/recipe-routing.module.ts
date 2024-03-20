@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
+import { AuthActivate } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       {
         path: 'create',
         component: CreateRecipeComponent,
+        canActivate: [AuthActivate],
       },
     ],
   },
