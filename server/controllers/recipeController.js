@@ -43,4 +43,10 @@ router.get("/lastThree", async (req, res) => {
   }
 });
 
+router.delete("/delete/:recipeId", async (req, res) => {
+  const recipeId = req.params.recipeId;
+  await recipeService.deleteRecipe(recipeId);
+  res.json({ ok: true });
+});
+
 module.exports = router;
