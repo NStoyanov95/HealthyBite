@@ -39,11 +39,10 @@ export class CreateRecipeComponent {
       return;
     }
     const recipeData = this.createRecipeForm.value as Recipe;
-    let owner: string = localStorage.getItem('_id') || '';
-    owner = owner.replace(/^"(.*)"$/, '$1');
+    let owner: string = JSON.parse(localStorage.getItem('user') || '{}')._id;
     this.recipeService.createRecipe(recipeData, owner).subscribe((data) => {
       this.createRecipeForm.reset();
-      this.router.navigate(['/recipes/catalog'])
+      this.router.navigate(['/recipes/catalog']);
     });
   }
 }
