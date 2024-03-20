@@ -9,7 +9,7 @@
             <button (click)="handleDelete()" class="details-btn">Delete</button>
         </ng-container>
         <h2 class="recipe-title">{{recipe?.recipeName}}</h2>
-        <p class="recipe-description">{{recipe?.owner}}</p>
+        <p class="recipe-description">Created: {{recipe?.createdAt | date:'yyyy-MM-dd'}}</p>
         <div class="recipe-sections">
             <div class="ingredients-section">
                 <h3>Ingredients:</h3>
