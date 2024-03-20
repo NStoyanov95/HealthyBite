@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 
 const SECRET = "SECRET_KEY";
 
+exports.getSingleUser = (userId) => User.findById(userId)
+
 exports.attach =  (userId, recipeId) =>
   User.findByIdAndUpdate(userId, { $push: { favorite: recipeId } });
 

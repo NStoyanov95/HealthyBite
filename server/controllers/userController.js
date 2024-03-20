@@ -48,4 +48,17 @@ router.post("/attach/:userId", async (req, res) => {
   }
 });
 
+router.get("/:userId/favorites", async (req, res) => {
+  try {
+    const user = await userService.getSingleUser(req.params.userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    const favorites = user.favorite;
+    res.json(favorites);
+  } catch (error) {
+    res.status(500).json({ error: "Server Error" });
+  }
+});
+
 module.exports = router;
