@@ -5,8 +5,9 @@ const userService = require("../services/userService");
 router.post("/register", async (req, res) => {
   const userData = req.body;
   try {
-    const result = await userService.register(userData);
-    res.send(result);
+    const { email, username, _id, accessToken } = await userService.register(userData);
+    res.cookie("auth-cookie", accessToken, { httpOnly: true, secure: true });
+    res.status(200).send({ email, _id, username });
   } catch (error) {
     res.status(500).send({ error: "Internal Server Error" });
   }
@@ -16,8 +17,11 @@ router.post("/login", async (req, res) => {
   const userData = req.body;
 
   try {
-    const result = await userService.login(userData);
-    res.send(result);
+    const { email, username, _id, accessToken } = await userService.login(
+      userData
+    );
+    res.cookie("auth-cookie", accessToken, { httpOnly: true, secure: true });
+    res.status(200).send({ email, _id, username });
   } catch (error) {
     res.status(401).send({ error: "Unauthorized" });
   }
