@@ -3,7 +3,7 @@
     <div class="recipe-details">
         <ng-container *ngIf="isLogged">
             <ng-container class="add-to-favorites-container" *ngIf="!isOwner">
-                <button class="details-btn">Add to Favorites</button>
+                <button class="details-btn" (click)="attachHandler()">Add to Favorites</button>
             </ng-container>
             <ng-container class="add-to-favorites-container" *ngIf="isOwner">
                 <button class="details-btn">Edit</button>

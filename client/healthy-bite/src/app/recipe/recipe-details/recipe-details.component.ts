@@ -47,4 +47,18 @@ export class RecipeDetailsComponent implements OnInit {
       this.router.navigate(['/recipes/catalog']);
     });
   }
+
+  attachHandler() {
+    const recipeId = this.activatedRoute.snapshot.params['recipeId'];
+    const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
+
+    this.authService
+      .attachFavoriteRecipe(userId, recipeId)
+      .subscribe((data) => {
+        this.router.navigate([`/recipes/details/${recipeId}`]);
+      });
+
+    console.log(recipeId);
+    console.log(userId);
+  }
 }
