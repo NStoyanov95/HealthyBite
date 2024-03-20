@@ -38,4 +38,8 @@ export class AuthService {
       .post<User>('/api/users/logout', {})
       .pipe(tap(() => localStorage.clear()));
   }
+
+  attachFavoriteRecipe(userId:string, recipeId:string){
+    return this.http.post(`/api/users/attach/${userId}`, {userId, recipeId})
+  }
 }
