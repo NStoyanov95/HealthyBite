@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/types/recipe';
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -14,7 +15,8 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(
     private recipeService: RecipeService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   get isOwner(): boolean {
@@ -24,6 +26,10 @@ export class RecipeDetailsComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  get isLogged(): boolean {
+    return this.authService.isLogged;
   }
 
   ngOnInit(): void {
@@ -36,11 +42,9 @@ export class RecipeDetailsComponent implements OnInit {
 
   handleDelete() {
     const recipeId = this.activatedRoute.snapshot.params['recipeId'];
-    this.recipeService
-      .deleteRecipe(recipeId)
-      .subscribe((data)=>{
-        console.log(data);
-        this.router.navigate(['/recipes/catalog'])
-      });
+    this.recipeService.deleteRecipe(recipeId).subscribe((data) => {
+      console.log(data);
+      this.router.navigate(['/recipes/catalog']);
+    });
   }
 }

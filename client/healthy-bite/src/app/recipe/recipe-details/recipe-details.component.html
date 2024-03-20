@@ -1,15 +1,19 @@
 <div class="recipe-card">
     <img src="{{recipe?.imageUrl}}" alt="Recipe Image" class="recipe-image">
     <div class="recipe-details">
-        <ng-container class="add-to-favorites-container" *ngIf="!isOwner">
-            <button class="details-btn">Add to Favorites</button>
-        </ng-container>
-        <ng-container class="add-to-favorites-container" *ngIf="isOwner">
-            <button class="details-btn">Edit</button>
-            <button (click)="handleDelete()" class="details-btn">Delete</button>
+        <ng-container *ngIf="isLogged">
+            <ng-container class="add-to-favorites-container" *ngIf="!isOwner">
+                <button class="details-btn">Add to Favorites</button>
+            </ng-container>
+            <ng-container class="add-to-favorites-container" *ngIf="isOwner">
+                <button class="details-btn">Edit</button>
+                <button (click)="handleDelete()"
+                    class="details-btn">Delete</button>
+            </ng-container>
         </ng-container>
         <h2 class="recipe-title">{{recipe?.recipeName}}</h2>
-        <p class="recipe-description">Created: {{recipe?.createdAt | date:'yyyy-MM-dd'}}</p>
+        <p class="recipe-description">Created: {{recipe?.createdAt |
+            date:'yyyy-MM-dd'}}</p>
         <div class="recipe-sections">
             <div class="ingredients-section">
                 <h3>Ingredients:</h3>
