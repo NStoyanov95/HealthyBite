@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/types/recipe';
 import { RecipeService } from '../recipe.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
@@ -13,11 +13,14 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   get isOwner(): boolean {
-    if (this.recipe?.owner == JSON.parse(localStorage.getItem('user') || '{}')._id) {
+    if (
+      this.recipe?.owner == JSON.parse(localStorage.getItem('user') || '{}')._id
+    ) {
       return true;
     }
     return false;
@@ -31,9 +34,13 @@ export class RecipeDetailsComponent implements OnInit {
     });
   }
 
-
-  handleDelete(){
-    console.log('Item deleted!');
-    
+  handleDelete() {
+    const recipeId = this.activatedRoute.snapshot.params['recipeId'];
+    this.recipeService
+      .deleteRecipe(recipeId)
+      .subscribe((data)=>{
+        console.log(data);
+        this.router.navigate(['/recipes/catalog'])
+      });
   }
 }
