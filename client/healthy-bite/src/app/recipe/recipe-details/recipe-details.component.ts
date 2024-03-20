@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class RecipeDetailsComponent implements OnInit {
   recipe: Recipe | undefined;
+  isRecipeFavorite: boolean = false;
 
   constructor(
     private recipeService: RecipeService,
@@ -33,7 +34,14 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
     const recipeId = this.activatedRoute.snapshot.params['recipeId'];
+
+    this.authService
+      .isRecipeInFavorite(userId, recipeId)
+      .subscribe((isFavorite) => {
+        this.isRecipeFavorite = isFavorite;
+      });
 
     this.recipeService.getSingleRecipe(recipeId).subscribe((data) => {
       this.recipe = data;
@@ -56,6 +64,7 @@ export class RecipeDetailsComponent implements OnInit {
       .attachFavoriteRecipe(userId, recipeId)
       .subscribe((data) => {
         this.router.navigate([`/recipes/details/${recipeId}`]);
+        this.isRecipeFavorite = true;
       });
 
     console.log(recipeId);
