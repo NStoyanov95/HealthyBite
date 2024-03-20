@@ -6,7 +6,8 @@
         </ng-container>
         <ng-container class="add-to-favorites-container" *ngIf="isOwner">
             <button class="details-btn">Edit</button>
-            <button class="details-btn">Delete</button>
+            <button routerLink="/recipes/delete/{{recipe?._id}}"
+                class="details-btn">Delete</button>
         </ng-container>
         <h2 class="recipe-title">{{recipe?.recipeName}}</h2>
         <p class="recipe-description">{{recipe?.owner}}</p>
