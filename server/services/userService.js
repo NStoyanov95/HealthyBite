@@ -2,6 +2,8 @@ const User = require("../models/User");
 const { jwt } = require("../lib/jwt");
 const bcrypt = require("bcrypt");
 
+const SECRET = "SECRET_KEY";
+
 exports.register = async (userData) => {
   if (userData.password !== userData.rePass) {
     throw new Error("Password mismatch!");
@@ -34,7 +36,7 @@ async function generateAccessToken(user) {
       email: user.email,
       username: user.username,
     },
-    "SomeSecretKey"
+    SECRET
   );
   return {
     _id: user._id,
