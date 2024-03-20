@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeModule } from './recipe/recipe.module';
+import { AppInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -23,7 +24,7 @@ import { RecipeModule } from './recipe/recipe.module';
     AuthModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AppInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
