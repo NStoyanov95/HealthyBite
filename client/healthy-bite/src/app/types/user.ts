@@ -5,3 +5,7 @@ export interface User {
   accessToken?: string;
   favorite: string[];
 }
+
+export interface FavoriteResponse {
+  _id: string
+}
