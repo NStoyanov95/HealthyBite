@@ -3,7 +3,7 @@ const router = require("express").Router();
 const recipeController = require("./controllers/recipeController");
 const userController = require("./controllers/userController");
 
-router.use("/recipe", recipeController);
-router.use("/user", userController);
+router.use("/recipes", recipeController);
+router.use("/users", userController);
 
 module.exports = router;
