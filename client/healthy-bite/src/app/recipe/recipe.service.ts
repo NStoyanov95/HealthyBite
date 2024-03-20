@@ -10,22 +10,24 @@ export class RecipeService {
   constructor(private http: HttpClient) {}
 
   getAllRecipes() {
-    return this.http.get<Recipe[]>(`${environment.apiUrl}/recipes/catalog`);
+    return this.http.get<Recipe[]>(`/api/recipes/catalog`);
   }
 
   getSingleRecipe(recipeId: string) {
-    return this.http.get<Recipe>(
-      `${environment.apiUrl}/recipes/details/${recipeId}`
-    );
+    return this.http.get<Recipe>(`/api/recipes/details/${recipeId}`);
   }
   getLastThreeRecipes() {
-    return this.http.get<Recipe[]>(`${environment.apiUrl}/recipes/lastThree`);
+    return this.http.get<Recipe[]>(`/api/recipes/lastThree`);
   }
 
   createRecipe(recipeData: Recipe, owner: string) {
-    return this.http.post<Recipe>(`${environment.apiUrl}/recipes/create`, {
+    return this.http.post<Recipe>(`/api/recipes/create`, {
       recipeData,
       owner,
     });
+  }
+
+  deleteRecipe(recipeId: string) {
+    return this.http.delete<Recipe>(`/api/recipes/delete/${recipeId}`);
   }
 }
