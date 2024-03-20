@@ -17,7 +17,7 @@ export class RecipeDetailsComponent implements OnInit {
   ) {}
 
   get isOwner(): boolean {
-    if (this.recipe?.owner == JSON.parse(localStorage.getItem('_id') || '')) {
+    if (this.recipe?.owner == JSON.parse(localStorage.getItem('user') || '{}')._id) {
       return true;
     }
     return false;
@@ -28,9 +28,6 @@ export class RecipeDetailsComponent implements OnInit {
 
     this.recipeService.getSingleRecipe(recipeId).subscribe((data) => {
       this.recipe = data;
-      console.log(this.recipe.owner?.toString() == localStorage.getItem('_id'));
-      console.log(this.recipe.owner);
-      console.log(localStorage.getItem('_id'));
     });
   }
 }
