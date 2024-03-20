@@ -17,9 +17,7 @@ export class RecipeDetailsComponent implements OnInit {
   ) {}
 
   get isOwner(): boolean {
-    if (
-      this.recipe?.owner == localStorage.getItem('_id')?.replaceAll('"', '')
-    ) {
+    if (this.recipe?.owner == JSON.parse(localStorage.getItem('_id') || '')) {
       return true;
     }
     return false;
