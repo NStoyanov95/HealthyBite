@@ -6,6 +6,7 @@
         <button>About</button>
         <ng-container *ngIf="isLogged">
             <button routerLink="/recipes/create">Add Recipe</button>
+            <button>Profile</button>
             <button (click)="logoutHandler()">Logout</button>
         </ng-container>
         <ng-container *ngIf="!isLogged">
