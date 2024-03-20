@@ -4,6 +4,9 @@ const bcrypt = require("bcrypt");
 
 const SECRET = "SECRET_KEY";
 
+exports.attach =  (userId, recipeId) =>
+  User.findByIdAndUpdate(userId, { $push: { favorite: recipeId } });
+
 exports.register = async (userData) => {
   if (userData.password !== userData.rePass) {
     throw new Error("Password mismatch!");

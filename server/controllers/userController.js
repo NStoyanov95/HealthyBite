@@ -9,7 +9,7 @@ router.post("/register", async (req, res) => {
       userData
     );
     res.cookie("auth-cookie", accessToken, { httpOnly: true, secure: true });
-    res.status(200).send({ email, _id, username,accessToken });
+    res.status(200).send({ email, _id, username, accessToken });
   } catch (error) {
     res.status(500).send({ error: "Internal Server Error" });
   }
@@ -35,6 +35,16 @@ router.post("/logout", (req, res) => {
     res.status(200).send({ message: "Logout successfully" });
   } catch (error) {
     res.status(500).send({ error: "Logout Failed" });
+  }
+});
+
+router.post("/attach/:userId", async (req, res) => {
+  const { userId, recipeId } = req.body;
+  try {
+    const user = await userService.attach(userId, recipeId);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).send({ error: "Attach Failed" });
   }
 });
 
