@@ -16,13 +16,13 @@ export class AuthService {
   login(email: string, password: string) {
     const body = { email, password };
 
-    return this.http.post<User>(`${environment.apiUrl}/user/login`, body);
+    return this.http.post<User>(`${environment.apiUrl}/users/login`, body);
   }
 
   register(email: string, username: string, password: string, rePass: string) {
     const body = { email, username, password, rePass };
 
-    return this.http.post<User>(`${environment.apiUrl}/user/register`, body);
+    return this.http.post<User>(`${environment.apiUrl}/users/register`, body);
   }
 
   logout() {
