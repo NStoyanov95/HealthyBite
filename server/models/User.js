@@ -5,6 +5,12 @@ const userSchema = new mongoose.Schema({
   email: String,
   username: String,
   password: String,
+  favorite: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Recipe",
+    },
+  ],
 });
 
 userSchema.pre("save", async function () {
