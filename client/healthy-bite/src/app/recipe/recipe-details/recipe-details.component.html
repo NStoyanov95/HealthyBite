@@ -1,16 +1,21 @@
 <div class="recipe-card">
     <img src="{{recipe?.imageUrl}}" alt="Recipe Image" class="recipe-image">
     <div class="recipe-details">
-        <div class="add-to-favorites-container">
-            <button class="add-to-favorites-btn">Add to Favorites</button>
-        </div>
+        <ng-container class="add-to-favorites-container">
+            <button class="details-btn">Add to Favorites</button>
+        </ng-container>
+        <ng-container class="add-to-favorites-container">
+            <button class="details-btn">Edit</button>
+            <button class="details-btn">Delete</button>
+        </ng-container>
         <h2 class="recipe-title">{{recipe?.recipeName}}</h2>
         <p class="recipe-description">{{recipe?.owner}}</p>
         <div class="recipe-sections">
             <div class="ingredients-section">
                 <h3>Ingredients:</h3>
                 <ul class="ingredient-list">
-                    <li *ngFor="let ingredient of recipe?.ingredients">{{ingredient}}</li>
+                    <li
+                        *ngFor="let ingredient of recipe?.ingredients">{{ingredient}}</li>
                 </ul>
             </div>
             <div class="instructions-section">
