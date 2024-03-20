@@ -22,13 +22,13 @@ export class AuthActivate implements CanActivate {
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
     if (!this.authService.isLogged) {
-      if (route.url[0].path === 'create') {
+      if (route.url[0].path === 'create' || route.url[0].path === 'profile') {
         this.router.navigate(['/login']);
         return false;
       }
       return true;
     } else {
-      if (route.url[0].path === 'create') {
+      if (route.url[0].path === 'create' || route.url[0].path === 'profile') {
         return true;
       }
       this.router.navigate(['/404']);
