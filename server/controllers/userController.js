@@ -61,4 +61,18 @@ router.get("/:userId/favorites", async (req, res) => {
   }
 });
 
+router.get("/:userId", async (req, res) => {
+  try {
+    const user = await userService
+      .getSingleUser(req.params.userId)
+      .populate("favorite")
+      .select("-password");
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    return res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
 module.exports = router;
