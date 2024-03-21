@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FavoriteResponse, User } from '../types/user';
+import { FavoriteResponse, User, UserProfile } from '../types/user';
 import { Observable, map, tap } from 'rxjs';
 
 @Injectable({
@@ -15,6 +15,10 @@ export class AuthService {
 
   get isLogged(): boolean {
     return !!localStorage.getItem('user');
+  }
+
+  getSingleUser(userId: string) {
+    return this.http.get<UserProfile>(`/api/users/${userId}`);
   }
 
   login(email: string, password: string) {
