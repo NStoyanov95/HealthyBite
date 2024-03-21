@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userId = this.activatedRoute.snapshot.params['userId'];
-    this.authService.getSingleUser(this.userId).subscribe({
+    this.subscription = this.authService.getSingleUser(this.userId).subscribe({
       next: (data) => {
         this.userProfile = data;
         console.log(this.userProfile);
