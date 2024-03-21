@@ -14,6 +14,11 @@ export class HeaderComponent {
     return this.authService.isLogged;
   }
 
+  getUserIdFromLocalStorage(): string {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    return user._id || '';
+  }
+
   logoutHandler() {
     this.authService.logout().subscribe({
       next: () => {

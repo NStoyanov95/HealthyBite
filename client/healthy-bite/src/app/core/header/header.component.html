@@ -6,7 +6,8 @@
         <button>About</button>
         <ng-container *ngIf="isLogged">
             <button routerLink="/recipes/create">Add Recipe</button>
-            <button routerLink="/profile">Profile</button>
+            <button
+                [routerLink]="'/profile/'+ getUserIdFromLocalStorage()">Profile</button>
             <button (click)="logoutHandler()">Logout</button>
         </ng-container>
         <ng-container *ngIf="!isLogged">
