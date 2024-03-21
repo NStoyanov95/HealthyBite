@@ -16,7 +16,7 @@ export class AuthService {
   get isLogged(): boolean {
     return !!localStorage.getItem('user');
   }
-  
+
   login(email: string, password: string) {
     const body = { email, password };
 
