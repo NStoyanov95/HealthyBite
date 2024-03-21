@@ -1,3 +1,5 @@
+import { Recipe } from './recipe';
+
 export interface User {
   _id?: string;
   email: string;
@@ -17,12 +19,12 @@ export interface UserProfile {
   favorite: Recipe[];
 }
 
-interface Recipe {
-  _id: string;
-  recipeName: string;
-  imageUrl: string;
-  ingredients: string[];
-  instructions: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
+// interface Recipe {
+//   _id: string;
+//   recipeName: string;
+//   imageUrl: string;
+//   ingredients: string[];
+//   instructions: string;
+//   createdAt: Date;
+//   updatedAt: Date;
+// }

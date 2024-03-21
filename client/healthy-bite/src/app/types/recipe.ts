@@ -6,4 +6,5 @@ export interface Recipe {
   instructions: string;
   owner?: string;
   createdAt: Date;
+  updatedAt: Date;
 }
