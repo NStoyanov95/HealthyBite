@@ -4,12 +4,10 @@ export interface User {
   username: string;
   accessToken?: string;
   favorite: string[];
-  error?: string;
 }
 
 export interface FavoriteResponse {
   _id: string;
-  error?: string;
 }
 
 export interface UserProfile {
@@ -17,7 +15,6 @@ export interface UserProfile {
   username: string;
   email: string;
   favorite: Recipe[];
-  error?: string;
 }
 
 interface Recipe {
