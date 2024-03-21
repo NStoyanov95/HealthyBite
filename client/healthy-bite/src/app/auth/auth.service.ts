@@ -16,11 +16,7 @@ export class AuthService {
   get isLogged(): boolean {
     return !!localStorage.getItem('user');
   }
-
-  getSingleUser(userId: string) {
-    return this.http.get<UserProfile>(`/api/users/${userId}`);
-  }
-
+  
   login(email: string, password: string) {
     const body = { email, password };
 
@@ -41,6 +37,10 @@ export class AuthService {
     return this.http
       .post<User>('/api/users/logout', {})
       .pipe(tap(() => localStorage.clear()));
+  }
+
+  getSingleUser(userId: string) {
+    return this.http.get<UserProfile>(`/api/users/${userId}`);
   }
 
   attachFavoriteRecipe(userId: string, recipeId: string) {
