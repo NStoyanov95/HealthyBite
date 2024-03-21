@@ -20,6 +20,6 @@ export class UserService {
   isRecipeInFavorite(userId: string, recipeId: string): Observable<boolean> {
     return this.http
       .get<string[]>(`/api/users/${userId}/favorites`)
-      .pipe(map((favorites) => favorites.includes(recipeId)));
+      .pipe(map((favorite) => favorite.includes(recipeId)));
   }
 }
