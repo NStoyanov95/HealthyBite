@@ -3,6 +3,7 @@ import { Recipe } from 'src/app/types/recipe';
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import { UserService } from 'src/app/auth/user.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -17,7 +18,8 @@ export class RecipeDetailsComponent implements OnInit {
     private recipeService: RecipeService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   get isOwner(): boolean {
@@ -37,7 +39,7 @@ export class RecipeDetailsComponent implements OnInit {
     const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
     const recipeId = this.activatedRoute.snapshot.params['recipeId'];
 
-    this.authService
+    this.userService
       .isRecipeInFavorite(userId, recipeId)
       .subscribe((isFavorite) => {
         this.isRecipeFavorite = isFavorite;
@@ -60,7 +62,7 @@ export class RecipeDetailsComponent implements OnInit {
     const recipeId = this.activatedRoute.snapshot.params['recipeId'];
     const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
 
-    this.authService
+    this.userService
       .attachFavoriteRecipe(userId, recipeId)
       .subscribe((data) => {
         this.router.navigate([`/recipes/details/${recipeId}`]);

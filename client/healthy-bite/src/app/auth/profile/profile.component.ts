@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserProfile } from 'src/app/types/user';
 import { Subscription } from 'rxjs';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,12 +17,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.userId = this.activatedRoute.snapshot.params['userId'];
-    this.subscription = this.authService.getSingleUser(this.userId).subscribe({
+    this.subscription = this.userService.getSingleUser(this.userId).subscribe({
       next: (data) => {
         this.userProfile = data;
         console.log(this.userProfile);
