@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent, canActivate: [AuthActivate] },
   {
-    path: 'profile',
+    path: 'profile/:userId',
     component: ProfileComponent,
     canActivate: [AuthActivate],
   },
