@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const recipeService = require("../services/recipeService");
+const userService = require("../services/userService");
 
 router.get("/catalog", async (req, res) => {
   try {
@@ -16,6 +17,7 @@ router.post("/create", async (req, res) => {
     const recipeData = req.body.recipeData;
     recipeData.owner = req.body.owner;
     const recipe = await recipeService.create(recipeData);
+    await userService.attachCreated(req.body.owner, recipe._id);
     res.json(recipe);
   } catch (error) {
     console.error("Error creating recipe:", error);

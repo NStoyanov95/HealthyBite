@@ -4,10 +4,13 @@ const bcrypt = require("bcrypt");
 
 const SECRET = "SECRET_KEY";
 
-exports.getSingleUser = (userId) => User.findById(userId)
+exports.getSingleUser = (userId) => User.findById(userId);
 
-exports.attach =  (userId, recipeId) =>
+exports.attachFavorite = (userId, recipeId) =>
   User.findByIdAndUpdate(userId, { $push: { favorite: recipeId } });
+
+exports.attachCreated = (userId, recipeId) =>
+  User.findByIdAndUpdate(userId, { $push: { created: recipeId } });
 
 exports.register = async (userData) => {
   if (userData.password !== userData.rePass) {

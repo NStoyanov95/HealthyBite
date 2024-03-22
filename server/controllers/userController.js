@@ -41,7 +41,7 @@ router.post("/logout", (req, res) => {
 router.post("/attach/:userId", async (req, res) => {
   const { userId, recipeId } = req.body;
   try {
-    const user = await userService.attach(userId, recipeId);
+    const user = await userService.attachFavorite(userId, recipeId);
     res.status(200).json(user);
   } catch (error) {
     res.status(500).send({ error: "Attach Failed" });
@@ -66,6 +66,7 @@ router.get("/:userId", async (req, res) => {
     const user = await userService
       .getSingleUser(req.params.userId)
       .populate("favorite")
+      .populate("created")
       .select("-password");
 
     return res.status(200).json(user);
