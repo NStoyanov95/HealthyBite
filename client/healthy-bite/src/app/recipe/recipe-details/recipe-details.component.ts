@@ -37,6 +37,13 @@ export class RecipeDetailsComponent implements OnInit {
     const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
     const recipeId = this.activatedRoute.snapshot.params['recipeId'];
 
+    if (this.isLogged) {
+      this.userService
+        .isRecipeInFavorite(userId, recipeId)
+        .subscribe((isFavorite) => {
+          this.isRecipeFavorite = isFavorite;
+        });
+    }
 
     this.recipeService.getSingleRecipe(recipeId).subscribe((data) => {
       this.recipe = data;
@@ -62,16 +69,7 @@ export class RecipeDetailsComponent implements OnInit {
         this.isRecipeFavorite = true;
       });
 
- 
-    if (this.isLogged) {
-      this.userService
-        .isRecipeInFavorite(userId, recipeId)
-        .subscribe((isFavorite) => {
-          this.isRecipeFavorite = isFavorite;
-        });
-    }
-
+    console.log(recipeId);
+    console.log(userId);
   }
-
-  
 }
