@@ -17,6 +17,7 @@ export interface UserProfile {
   username: string;
   email: string;
   favorite: Recipe[];
+  created: Recipe[]
 }
 
 // interface Recipe {
