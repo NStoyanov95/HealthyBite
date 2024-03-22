@@ -11,6 +11,12 @@ const userSchema = new mongoose.Schema({
       ref: "Recipe",
     },
   ],
+  created: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Recipe",
+    },
+  ],
 });
 
 userSchema.pre("save", async function () {
