@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
+import {  UserService } from 'src/app/auth/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +8,10 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   get isLogged(): boolean {
-    return this.authService.isLogged;
+    return this.userService.isLogged;
   }
 
   getUserIdFromLocalStorage(): string {
@@ -20,7 +20,7 @@ export class HeaderComponent {
   }
 
   logoutHandler() {
-    this.authService.logout().subscribe({
+    this.userService.logout().subscribe({
       next: () => {
         this.router.navigate(['/']);
       },

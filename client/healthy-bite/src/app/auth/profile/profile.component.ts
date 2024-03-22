@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserProfile } from 'src/app/types/user';
 import { Subscription } from 'rxjs';
@@ -16,9 +15,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
 
   constructor(
-    private authService: AuthService,
+    private userService: UserService,
     private activatedRoute: ActivatedRoute,
-    private userService: UserService
   ) {}
 
   ngOnInit(): void {

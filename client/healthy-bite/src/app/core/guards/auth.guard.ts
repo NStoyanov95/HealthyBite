@@ -7,11 +7,11 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/auth/auth.service';
+import {  UserService } from 'src/app/auth/user.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthActivate implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -21,7 +21,7 @@ export class AuthActivate implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    if (!this.authService.isLogged) {
+    if (!this.userService.isLogged) {
       if (route.url[0].path === 'create' || route.url[0].path === 'profile') {
         this.router.navigate(['/login']);
         return false;

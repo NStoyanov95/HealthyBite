@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import {  UserService } from '../user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
+    private userService: UserService,
     private router: Router
   ) {}
 
@@ -28,7 +28,7 @@ export class LoginComponent {
       return;
     }
 
-    this.authService.login(email!, password!).subscribe((data) => {
+    this.userService.login(email!, password!).subscribe((data) => {
       this.loginForm.reset();
       this.router.navigate(['/']);
     });

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { passwordMatchValidator } from 'src/app/shared/validators/password-match-validator';
 
@@ -12,7 +12,7 @@ import { passwordMatchValidator } from 'src/app/shared/validators/password-match
 export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
+    private userService: UserService,
     private router: Router
   ) {}
 
@@ -46,7 +46,7 @@ export class RegisterComponent {
       return;
     }
 
-    this.authService
+    this.userService
       .register(email!, username!, password!, rePass!)
       .subscribe((data) => {
         this.registerForm.reset();

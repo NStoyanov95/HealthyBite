@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/types/recipe';
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
 import { UserService } from 'src/app/auth/user.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class RecipeDetailsComponent implements OnInit {
     private recipeService: RecipeService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService,
     private userService: UserService
   ) {}
 
@@ -32,7 +30,7 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   get isLogged(): boolean {
-    return this.authService.isLogged;
+    return this.userService.isLogged;
   }
 
   ngOnInit(): void {
