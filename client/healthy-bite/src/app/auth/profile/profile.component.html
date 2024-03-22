@@ -1,46 +1,50 @@
+<div  *ngIf="!isLoading">
 <div class="profile-card">
-    <div class="profile-header">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXz9vjEyMjHy8vq7e/BxcXy9ff2+fvKzs7t8PLM0NDQ1NTo6+3s7/Hl6Ora3t/g4+TW2docBsjfAAAIgklEQVR4nO1d6YKrKgxWlLAo4vs/7YWAndp6OrVCoHP5fpyZ6bFAJCtL0nUNDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0Nfw3QddxBSv8v/vl34Gkb7LJqrQRzEEppvdrpj9AJfFpWMTr0O/hPxGoN/24iQVrtiOn/CfdfyspvJRKk0Wy8m7Tec6hATu3vpnRk+juJHNaNPPeDKceQwyxRz0g5D5NdFbtN78jWqfR4TwIGvQ1+FIuRHTxNkvtEmkVtkznq6YvmEYwa4+xpy5+Ju3sSuJPU+LAw30LjpKKEKcvfed4TGb/wDbwKco3D1dO7lgC6YZtILfMOLwFMHOo6n2I5mNeoc2yukSUB8KBgxpP04XflGr6rKzYdYFgY4/DRGG8KuF6Ns+D4rvCZxVfUL+nGlBIcuWxU5xn0ByDRzozrW0qYGDyMbbnKYUt4T9WRCEMw2p9J4L6l4O1dYYUcCASmYa6okOuy/lMgMFVzKNGsJkd1YEhguhGhMLI5WXtXIVkSHXMHQBL7Wly4QKBNy1MWZ7EOjcoVzmDiVnEWR10FiV4tpJTBfbvJmz0NsPiuczTtjUZq5v8AaCfyeCBcoOXP0fTZUbBMOk96CkXZSQz6wORqHSWgbKAxZ9IyEYDOTVE+9TwqMraPQlAwzkAuyushTxmciRPwzkxSZ+0Ank+LuTYoJbn06AaZ2uU93XluDgo+eJlJxCnMqWZiN+UmEacwlyn8Adi+1CR69mEE75Z7fVZkJZxKj6MklrCJxk8hSU9olAqsS2kyBYAqTZPrmpkwshkI7O4TUDiyxL0H8Osk9LpGEfqL4XUSs+lMutgnC/g1lpBJuxCl5Xcu7gF0mhThtGnGQPsQ3kQRxt6GfMEGt5oI++PegSLsj1wMOxDEbo33MkgjGliJFzNAUes2zzSUK/xAvsjnVQ2lWPCRVtE4D4PRLkjNRMHvDzCCIqTQx4aK1gB7ZUoYXqDck1LodRuhufC+PvHyF7qJdNq7BIUraYhYgkLaLktQaP86hcTK7X9AIS3LICxtDFzAHhKzjSFf+6KmcCL32ojtYQHPm9hrKxA9UXveGAGTbiT4TUTKNWG/MER7Dtsv7glKConlPmpvwv7Q5JMuDJF7UX5hSBH2RxwedvEcBmF/eOSEVLVRr0HjLgK9i0HomRbYIjW0J0AKbHNL0u01Tu5hEG+R4jlW8vPevlMye6FLnMWQhBfo5jLXvDSZNi1y2KQL2pTG28fDibQnMQIIDnkjUM8UOeptqcJgqlf5BDwfkV/DFTwjjAqAgHsKHtanuG5R9Kx+7Pwv37cIk5jZJlLcWvk3wr2nrJlITNl7TxjVZFU2eHeNcgXqCXj/MJ9DBXgVuOj9w3CHNBcX1XCHNPBprhgDV2fy36z6Bf44Vi+yKDtZxV3uDsxfv4+/pXdIPxAksJit30EnzU0TgVeB8vDGeaDRSq3y0COk3G16iZklJ7Gu/DQbiQk91LWyHENbEp5UUhNSYVVF4I3EJCkPQ1a6PDb2AoJ5ZgkCjZB8sVzE9E/EnHuXhTHkJqxGi94j5k28lHYvJtyrIXnSIXBVrO+XT98/8JA9s682SytMKIy9+nCBOiZYTpB8MR/4lkf2g0FOakyYfDEbYGIf0QhTzM9bVbbEYzhZCmNVb1cFAG5E+E6t2WcfMG/5rsUy/04k8J/89GvFSZJ3gC1n+dgrR+SrR/mwqC27vh6oBvgRgO+my+iYMB+rWEiAx9zz/oPZ+soX8TG9d4dqq3sBXonuFhxA3njPV+tgerFmGmbJua+MYOyq2U9Vj5EtO4rAOJVaE8eCRO0y6n3u35+iAIFM/MHY/V+BPL3XSSB1bVJpt9lij6UCpNXsdY0Soe2jjx1c7zCzZDS8wqDu5kM9mDNwqtJT2T/UmUEOZdoOj/K2JWbfLE7xaYTNi+kX9U9TDyCNrxWkAqVMqHVd7HRQ+cIxaGhF2M1zKMyqEJ3tfnVzsf1+XG3kca6OHhk2S7q4/7fRCyjKqvGNR0u2aQjvep9X9s6xiYrJaSz8JEYaoyiX2duEYE78hBJmM/ViORmjy2UTZ3GLnW6vrJAvB1EC990bdjPhr0vM3LfU2ZuD4GLDuy9BfImqgDSCRDF51gRgt8kYR2WH3wqPAcw38ryCeWwtajL6mhexWMdxNH5f6kmsZjgqhtShJZnNIm5Fn3pn+Q8eK1TzIigB9Y8g0Dk5N3/a/WTK+2wzlrMKFfS4lJNdtLiZydEHIsddRQtCm9s7iOCraBy6YWE7nw2rkvmqeVorJfr7WnPul2V6xc7kNS/CmvRvW3sAw6IfS+Y9w0nrMv2iksDgo4xqASesSb/THXTc7IKIR+KYWg9l76mh0GdPs8QhVdDfbz4OLlxyZCrBbtzq349QerWDfJvxonNBoVJx+f6s2DsuxLgwYvCkvWksN0Szkf8kLU+6y3QG0cPIPYtxBov4+9HNzyuLoZZFqV2FjcSMXZQlsIsnrzNufodjZiX3hSDzAYY17zm9d5D1EErGaiRnkKvoi1/IRl+7+OpXcBlzHAbDswg1nI8IxVnSK9SgZcov7nXxUlnyRNt5j8qeA8pLcoXgE06XuD92iByvO2tJoPPgOvVwgqGtQggDZGrvGBmfOFPxSwTbnPCVi6yu0icAXCtONaQg2HUVzQx3A1O5yL4x4tRevyPcSErkgKwF78e9gI/k0hjFuR5bv4O/b5LmArSuwuE+wJoo6cFAs8L1AdA/vc5cqJaLB4XHwIvIl1tBbq/0sBIfE9wmr3kKg6G+erdNVjyFacqG+cMRhSuBvkCok3StDardkM8QatZfiaJC0o15qBazuniDj28HZKrGlahn+HUHtwZc0DVxP6t2XAj2uWLfgWoWkBoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoavhr/AUmVRAkJKVGqAAAAAElFTkSuQmCC" alt="Profile Picture">
-      <div class="profile-info">
-        <h2>JohnDoe</h2>
-        <p>johndoeexample.com</p>
-      </div>
+  <div class="profile-header">
+    <img
+      src="data:image/png;base64,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"
+      alt="Profile Picture">
+    <div class="profile-info">
+      <h2>{{userProfile.username}}</h2>
+      <p>{{userProfile.email}}</p>
     </div>
-    
-    <div class="profile-body">
-      <div class="recipes-container">
-        <div class="created-recipes">
-          <h3>Created Recipes</h3>
-          <div class="recipe">
-            <img src="https://www.southernliving.com/thmb/HSEUOjJVCl4kIRJRMAZ1eblQlWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Millionaire_Spaghetti_019-34e9c04b1ae8405088f53450a048e413.jpg" alt="Recipe 1">
-            <h4>Spaghetti Carbonara</h4>
-          </div>
-          <div class="recipe">
-            <img src="https://www.southernliving.com/thmb/HSEUOjJVCl4kIRJRMAZ1eblQlWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Millionaire_Spaghetti_019-34e9c04b1ae8405088f53450a048e413.jpg" alt="Recipe 2">
-            <h4>Chicken Alfredo</h4>
-          </div>
-          <div class="recipe">
-            <img src="https://www.southernliving.com/thmb/HSEUOjJVCl4kIRJRMAZ1eblQlWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Millionaire_Spaghetti_019-34e9c04b1ae8405088f53450a048e413.jpg" alt="Recipe 3">
-            <h4>Chocolate Cake</h4>
-          </div>
+  </div>
+
+  <div class="profile-body">
+    <div class="recipes-container">
+      <div class="created-recipes">
+        <h3>Created Recipes</h3>
+        <div class="recipe">
+          <img
+            src="https://www.southernliving.com/thmb/HSEUOjJVCl4kIRJRMAZ1eblQlWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Millionaire_Spaghetti_019-34e9c04b1ae8405088f53450a048e413.jpg"
+            alt="Recipe 1">
+          <h4>Spaghetti Carbonara</h4>
         </div>
-        
-        <div class="favorite-recipes">
-          <h3>Favourite Recipes</h3>
-          <div class="recipe">
-            <img src="https://www.southernliving.com/thmb/HSEUOjJVCl4kIRJRMAZ1eblQlWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Millionaire_Spaghetti_019-34e9c04b1ae8405088f53450a048e413.jpg" alt="Recipe 4">
-            <h4>Apple Pie</h4>
-          </div>
-          <div class="recipe">
-            <img src="https://www.southernliving.com/thmb/HSEUOjJVCl4kIRJRMAZ1eblQlWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Millionaire_Spaghetti_019-34e9c04b1ae8405088f53450a048e413.jpg" alt="Recipe 5">
-            <h4>Caesar Salad</h4>
-          </div>
-          <div class="recipe">
-            <img src="https://www.southernliving.com/thmb/HSEUOjJVCl4kIRJRMAZ1eblQlWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Millionaire_Spaghetti_019-34e9c04b1ae8405088f53450a048e413.jpg" alt="Recipe 6">
-            <h4>Pasta Primavera</h4>
-          </div>
+        <div class="recipe">
+          <img
+            src="https://www.southernliving.com/thmb/HSEUOjJVCl4kIRJRMAZ1eblQlWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Millionaire_Spaghetti_019-34e9c04b1ae8405088f53450a048e413.jpg"
+            alt="Recipe 2">
+          <h4>Chicken Alfredo</h4>
         </div>
+        <div class="recipe">
+          <img
+            src="https://www.southernliving.com/thmb/HSEUOjJVCl4kIRJRMAZ1eblQlWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Millionaire_Spaghetti_019-34e9c04b1ae8405088f53450a048e413.jpg"
+            alt="Recipe 3">
+          <h4>Chocolate Cake</h4>
+        </div>
+      </div>
+
+      <div class="favorite-recipes">
+        <h3>Favourite Recipes</h3>
+        <div class="recipe" *ngFor="let favorite of userProfile.favorite">
+          <img
+            src="{{favorite.imageUrl}}"
+            alt="Recipe 4">
+          <h4>{{favorite.recipeName}}</h4>
+        </div>
+
       </div>
     </div>
   </div>
-  
+</div>
+</div>
