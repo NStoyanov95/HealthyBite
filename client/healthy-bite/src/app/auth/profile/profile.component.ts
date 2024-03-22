@@ -16,8 +16,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(
     private userService: UserService,
-    private activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute
   ) {}
+
+  isLoading: boolean = true;
 
   ngOnInit(): void {
     this.userId = this.activatedRoute.snapshot.params['userId'];
@@ -25,9 +27,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
       next: (data) => {
         this.userProfile = data;
         console.log(this.userProfile);
+        this.isLoading = false;
       },
       error: (error) => {
         console.log('HTTP error', error);
+        this.isLoading = false;
         alert('HTTP error ' + error);
       },
     });
