@@ -28,7 +28,10 @@ export class RecipeService {
   }
 
   updateRecipe(recipeData: Recipe, recipeId: string) {
-    return this.http.put<Recipe>(`/api/recipes/edit/${recipeId}`, recipeData);
+    return this.http.put<Recipe>(`/api/recipes/edit/${recipeId}`, {
+      recipeId,
+      recipeData,
+    });
   }
 
   deleteRecipe(recipeId: string) {
