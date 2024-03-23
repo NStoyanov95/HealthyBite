@@ -32,7 +32,7 @@ export class CreateRecipeComponent {
     if (ingredients.length >= 5) {
       return;
     }
-    ingredients.push(this.fb.control(''));
+    ingredients.push(this.fb.control('', Validators.required));
   }
   createRecipeHandler() {
     if (this.createRecipeForm.invalid) {
