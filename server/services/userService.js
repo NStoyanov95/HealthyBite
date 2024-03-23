@@ -16,12 +16,19 @@ exports.attachCreated = (userId, recipeId) =>
   User.findByIdAndUpdate(userId, { $push: { created: recipeId } });
 
 exports.register = async (userData) => {
+
+  const user = await User.findOne({ email: userData.email });
+  if (user) {
+      throw new Error('Email already exists');
+  }
+  
   if (userData.password !== userData.rePass) {
     throw new Error("Password mismatch!");
   }
-  const user = await User.create(userData);
 
-  return generateAccessToken(user);
+  const newUser = await User.create(userData);
+
+  return generateAccessToken(newUser);
 };
 
 exports.login = async (userData) => {

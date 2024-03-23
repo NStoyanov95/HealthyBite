@@ -11,7 +11,7 @@ router.post("/register", async (req, res) => {
     res.cookie("auth-cookie", accessToken, { httpOnly: true, secure: true });
     res.status(200).send({ email, _id, username, accessToken });
   } catch (error) {
-    res.status(500).send({ error: "Internal Server Error" });
+    res.status(500).send({ error: error.message });
   }
 });
 
