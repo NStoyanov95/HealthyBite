@@ -2,7 +2,7 @@
     max-width: 50%;
     margin: 0 auto;
     margin-bottom: 10px;
-    background-color: #f9f9f9;
+    background-color: #ffa50014;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -41,7 +41,7 @@
   }
   
   .ingredients-section{
-  background-color: #e3bd7773;
+  background-color: #8e8e8e3f;
   padding: 10px;
   }
   .instructions-section {
