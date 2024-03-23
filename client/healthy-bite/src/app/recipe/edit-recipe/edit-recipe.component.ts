@@ -66,7 +66,8 @@ export class EditRecipeComponent implements OnInit {
     if (this.editRecipeForm.invalid) {
       return;
     }
-
+    console.log(recipeData);
+    
     this.recipeService
       .updateRecipe(recipeData, this.recipeId)
       .subscribe((data) => {
