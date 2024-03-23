@@ -77,3 +77,7 @@
     background-color: #ff8c00;
   }
   
+  .error{
+    font-size: 13px ;
+    color: red  ;
+  }
