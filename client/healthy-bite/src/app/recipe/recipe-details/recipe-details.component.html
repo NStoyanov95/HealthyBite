@@ -2,8 +2,16 @@
     <img src="{{recipe?.imageUrl}}" alt="Recipe Image" class="recipe-image">
     <div class="recipe-details">
         <ng-container *ngIf="isLogged">
-            <ng-container class="add-to-favorites-container" *ngIf="!isOwner && !isRecipeFavorite">
-                <button class="details-btn" (click)="attachHandler()">Add to Favorites</button>
+            <ng-container class="add-to-favorites-container"
+                *ngIf="!isOwner && !isRecipeFavorite">
+                <button class="details-btn" (click)="attachHandler()">Add to
+                    Favorites</button>
+            </ng-container>
+            <ng-container class="add-to-favorites-container"
+                *ngIf="!isOwner && isRecipeFavorite">
+                <button class="details-btn"
+                    (click)="removeFavoriteHandler()">Remove from
+                    Favorites</button>
             </ng-container>
             <ng-container class="add-to-favorites-container" *ngIf="isOwner">
                 <button class="details-btn">Edit</button>
