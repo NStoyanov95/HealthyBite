@@ -19,9 +19,9 @@ exports.register = async (userData) => {
 
   const user = await User.findOne({ email: userData.email });
   if (user) {
-      throw new Error('Email already exists');
+      throw new Error('User already exists');
   }
-  
+
   if (userData.password !== userData.rePass) {
     throw new Error("Password mismatch!");
   }
