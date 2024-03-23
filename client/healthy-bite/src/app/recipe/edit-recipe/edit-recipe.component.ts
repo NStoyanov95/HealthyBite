@@ -1,13 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { RecipeService } from '../recipe.service';
+import { ActivatedRoute } from '@angular/router';
+import { Recipe } from 'src/app/types/recipe';
 
 @Component({
   selector: 'app-edit-recipe',
   templateUrl: './edit-recipe.component.html',
   styleUrls: ['./edit-recipe.component.css'],
 })
-export class EditRecipeComponent {
-  constructor(private fb: FormBuilder) {}
+export class EditRecipeComponent implements OnInit {
+  recipeId: string = '';
+
+  constructor(
+    private fb: FormBuilder,
+    private recipeService: RecipeService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   editRecipeForm = this.fb.group({
     recipeName: ['', Validators.required],
@@ -15,6 +24,13 @@ export class EditRecipeComponent {
     ingredients: this.fb.array([], Validators.required),
     instructions: ['', Validators.required],
   });
+
+  ngOnInit(): void {
+    this.recipeId = this.activatedRoute.snapshot.params['recipeId'];
+    this.recipeService
+      .getSingleRecipe(this.recipeId)
+      .subscribe((data) => this.populateEditForm(data));
+  }
 
   get ingredientControls() {
     return (this.editRecipeForm.get('ingredients') as FormArray).controls;
@@ -26,5 +42,22 @@ export class EditRecipeComponent {
       return;
     }
     ingredients.push(this.fb.control('', Validators.required));
+  }
+
+  populateEditForm(recipeData: Recipe) {
+    this.editRecipeForm.patchValue({
+      recipeName: recipeData.recipeName,
+      imageUrl: recipeData.imageUrl,
+      instructions: recipeData.instructions,
+    });
+
+    const ingredientsArray = this.editRecipeForm.get(
+      'ingredients'
+    ) as FormArray;
+
+
+    recipeData.ingredients.forEach((ingredient) => {
+      ingredientsArray.push(this.fb.control(ingredient, Validators.required));
+    });
   }
 }

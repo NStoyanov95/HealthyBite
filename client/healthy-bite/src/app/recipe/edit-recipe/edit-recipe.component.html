@@ -18,12 +18,13 @@
                     <label>Ingredient {{i + 1}}</label>
                     <input type="text" [formControlName]="i">
                 </div>
-                <div class="add-ingredient-btn" (click)="addIngredients()">Add ingredient</div>
+                <div class="add-ingredient-btn" (click)="addIngredients()">Add
+                    ingredient</div>
             </div>
             <div class="input-container">
                 <label for="instructions">Instructions:</label>
                 <textarea id="instructions" name="instructions"
-                    rows="6" formArrayName="instructions"></textarea>
+                    rows="6" formControlName="instructions"></textarea>
             </div>
             <button type="submit">Submit Recipe</button>
         </form>
