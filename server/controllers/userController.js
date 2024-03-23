@@ -25,7 +25,7 @@ router.post("/login", async (req, res) => {
     res.cookie("auth-cookie", accessToken, { httpOnly: true, secure: true });
     res.status(200).send({ email, _id, username, accessToken });
   } catch (error) {
-    res.status(401).send({ error: "Unauthorized" });
+    res.status(401).send({ error: error.message });
   }
 });
 
