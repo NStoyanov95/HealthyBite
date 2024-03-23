@@ -47,6 +47,7 @@
   .instructions-section {
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    width: 300px;
   }
   
   .ingredients-section h3,
@@ -66,6 +67,7 @@
   
   .recipe-instructions {
     line-height: 1.5;
+    word-wrap: break-word;
   }
   
   @media only screen and (min-width: 600px) {
@@ -85,6 +87,7 @@
   
     .instructions-section {
       padding-left: 10px;
+      
     }
   }
   .add-to-favorites-container {
