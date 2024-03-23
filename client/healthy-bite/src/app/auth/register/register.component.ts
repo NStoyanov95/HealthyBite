@@ -46,11 +46,14 @@ export class RegisterComponent {
       return;
     }
 
-    this.userService
-      .register(email!, username!, password!, rePass!)
-      .subscribe((data) => {
+    this.userService.register(email!, username!, password!, rePass!).subscribe({
+      next: (data) => {
         this.registerForm.reset();
         this.router.navigate(['/']);
-      });
+      },
+      error: (err) => {
+        console.error(err.error['error']);
+      },
+    });
   }
 }
