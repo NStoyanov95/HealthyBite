@@ -9,6 +9,9 @@ exports.getSingleUser = (userId) => User.findById(userId);
 exports.attachFavorite = (userId, recipeId) =>
   User.findByIdAndUpdate(userId, { $push: { favorite: recipeId } });
 
+exports.removeFavoriteRecipe = (userId, recipeId) =>
+  User.findByIdAndUpdate(userId, { $pull: { favorite: recipeId } });
+
 exports.attachCreated = (userId, recipeId) =>
   User.findByIdAndUpdate(userId, { $push: { created: recipeId } });
 
