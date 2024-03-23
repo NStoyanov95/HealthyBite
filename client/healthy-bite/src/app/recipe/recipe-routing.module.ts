@@ -4,6 +4,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { AuthActivate } from '../core/guards/auth.guard';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
         path: 'create',
         component: CreateRecipeComponent,
         canActivate: [AuthActivate],
+      },
+      {
+        path: 'edit/:recipeId',
+        component: EditRecipeComponent,
       },
     ],
   },
