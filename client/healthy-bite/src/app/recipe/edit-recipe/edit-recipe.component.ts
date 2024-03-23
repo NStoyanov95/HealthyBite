@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/types/recipe';
 
 @Component({
@@ -15,7 +15,8 @@ export class EditRecipeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private recipeService: RecipeService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   editRecipeForm = this.fb.group({
@@ -67,11 +68,9 @@ export class EditRecipeComponent implements OnInit {
       return;
     }
     console.log(recipeData);
-    
-    this.recipeService
-      .updateRecipe(recipeData, this.recipeId)
-      .subscribe((data) => {
-        console.log(data);
-      });
+
+    this.recipeService.updateRecipe(recipeData, this.recipeId).subscribe(() => {
+      this.router.navigate([`/recipes/details/${this.recipeId}`]);
+    });
   }
 }
