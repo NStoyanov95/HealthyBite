@@ -67,10 +67,14 @@ export class EditRecipeComponent implements OnInit {
     if (this.editRecipeForm.invalid) {
       return;
     }
-    console.log(recipeData);
 
-    this.recipeService.updateRecipe(recipeData, this.recipeId).subscribe(() => {
-      this.router.navigate([`/recipes/details/${this.recipeId}`]);
+    this.recipeService.updateRecipe(recipeData, this.recipeId).subscribe({
+      next: (data) => {
+        this.router.navigate([`/recipes/details/${this.recipeId}`]);
+      },
+      error: (error) => {
+        console.error('Error updating recipe: ' + error);
+      },
     });
   }
 }
