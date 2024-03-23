@@ -47,9 +47,23 @@ router.get("/lastThree", async (req, res) => {
 });
 
 router.delete("/delete/:recipeId", isAuth, async (req, res) => {
-  const recipeId = req.params.recipeId;
-  const recipe = await recipeService.deleteRecipe(recipeId);
-  res.json(recipe);
+  try {
+    const recipeId = req.params.recipeId;
+    const recipe = await recipeService.deleteRecipe(recipeId);
+    res.json(recipe);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.put("/edit/:recipeId", isAuth, async (req, res) => {
+  try {
+    const { recipeId, recipeData } = req.body;
+    const recipe = await recipeService.updateRecipe(recipeId, recipeData);
+    res.json(recipe);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 module.exports = router;
