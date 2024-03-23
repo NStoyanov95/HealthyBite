@@ -55,9 +55,22 @@ export class EditRecipeComponent implements OnInit {
       'ingredients'
     ) as FormArray;
 
-
     recipeData.ingredients.forEach((ingredient) => {
       ingredientsArray.push(this.fb.control(ingredient, Validators.required));
     });
+  }
+
+  editRecipeHandler() {
+    const recipeData = this.editRecipeForm.value as Recipe;
+
+    if (this.editRecipeForm.invalid) {
+      return;
+    }
+
+    this.recipeService
+      .updateRecipe(recipeData, this.recipeId)
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }
