@@ -1,17 +1,28 @@
 <div class="container">
     <div class="form-container">
-        <form id="createRecipeForm" [formGroup]="editRecipeForm">
+        <form id="editRecipeForm" [formGroup]="editRecipeForm" (ngSubmit)="editRecipeHandler()">
             <h2>Edit Recipe</h2>
             <div class="input-container">
                 <label for="recipe-name">Recipe Name:</label>
                 <input type="text" id="recipe-name" name="recipeName"
                     formControlName="recipeName">
             </div>
+            <ng-container *ngIf="editRecipeForm.get('recipeName')?.touched">
+                <p class="error"
+                    *ngIf="editRecipeForm.get('recipeName')?.invalid">Recipe
+                    name
+                    is required</p>
+            </ng-container>
             <div class="input-container">
                 <label for="recipe-image-url">Recipe Image URL:</label>
                 <input type="url" id="recipe-image-url" name="recipeImageUrl"
                     placeholder="Enter image URL" formControlName="imageUrl">
             </div>
+            <ng-container *ngIf="editRecipeForm.get('imageUrl')?.touched">
+                <p class="error"
+                    *ngIf="editRecipeForm.get('imageUrl')?.invalid">Image
+                    is required</p>
+            </ng-container>
             <div id="ingredients" formArrayName="ingredients">
                 <div class="input-container"
                     *ngFor="let ingredientControl of ingredientControls; let i = index">
@@ -21,11 +32,20 @@
                 <div class="add-ingredient-btn" (click)="addIngredients()">Add
                     ingredient</div>
             </div>
+            <ng-container
+                *ngIf="editRecipeForm.get('ingredients')?.hasError('required') ">
+                <p class="error">At least one ingredient is required</p>
+            </ng-container>
             <div class="input-container">
                 <label for="instructions">Instructions:</label>
                 <textarea id="instructions" name="instructions"
                     rows="6" formControlName="instructions"></textarea>
             </div>
+            <ng-container *ngIf="editRecipeForm.get('instructions')?.touched">
+                <p class="error"
+                    *ngIf="editRecipeForm.get('instructions')?.invalid">Instructions
+                    is required</p>
+            </ng-container>
             <button type="submit">Submit Recipe</button>
         </form>
     </div>
