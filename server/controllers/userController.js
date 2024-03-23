@@ -48,6 +48,16 @@ router.post("/attach/:userId", async (req, res) => {
   }
 });
 
+router.post("/removeRecipe/:userId", async (req, res) => {
+  const { userId, recipeId } = req.body;
+  try {
+    const user = await userService.removeFavoriteRecipe(userId, recipeId);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).send({ error: "Remove Failed" });
+  }
+});
+
 router.get("/:userId/favorites", async (req, res) => {
   try {
     const user = await userService.getSingleUser(req.params.userId);
