@@ -60,6 +60,7 @@
 }
 
 .recipe h4 {
+  text-align: center;
   margin-top: 10px;
   font-size: 18px; /* Adjust the font size as needed */
 }
