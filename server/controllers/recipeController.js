@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+const { isAuth } = require("../middlewares/authMiddleware");
+
 const recipeService = require("../services/recipeService");
 const userService = require("../services/userService");
 
@@ -44,7 +46,7 @@ router.get("/lastThree", async (req, res) => {
   }
 });
 
-router.delete("/delete/:recipeId", async (req, res) => {
+router.delete("/delete/:recipeId", isAuth, async (req, res) => {
   const recipeId = req.params.recipeId;
   const recipe = await recipeService.deleteRecipe(recipeId);
   res.json(recipe);
