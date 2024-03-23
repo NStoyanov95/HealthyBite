@@ -47,6 +47,10 @@ export class UserService {
     return this.http.post(`/api/users/attach/${userId}`, { userId, recipeId });
   }
 
+  removeFavoriteRecipe(userId: string, recipeId: string){
+    return this.http.post(`/api/users/removeRecipe/${userId}`, {userId, recipeId})
+  }
+
   isRecipeInFavorite(userId: string, recipeId: string): Observable<boolean> {
     return this.http
       .get<string[]>(`/api/users/${userId}/favorites`)
