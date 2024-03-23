@@ -1,27 +1,29 @@
 <div class="container">
     <div class="form-container">
-        <form id="createRecipeForm">
+        <form id="createRecipeForm" [formGroup]="editRecipeForm">
             <h2>Edit Recipe</h2>
             <div class="input-container">
                 <label for="recipe-name">Recipe Name:</label>
-                <input type="text" id="recipe-name" name="recipeName">
+                <input type="text" id="recipe-name" name="recipeName"
+                    formControlName="recipeName">
             </div>
             <div class="input-container">
                 <label for="recipe-image-url">Recipe Image URL:</label>
                 <input type="url" id="recipe-image-url" name="recipeImageUrl"
-                    placeholder="Enter image URL">
+                    placeholder="Enter image URL" formControlName="imageUrl">
             </div>
             <div id="ingredients" formArrayName="ingredients">
-                <div class="input-container">
-                    <label>Ingredient</label>
-                    <input type="text">
+                <div class="input-container"
+                    *ngFor="let ingredientControl of ingredientControls; let i = index">
+                    <label>Ingredient {{i + 1}}</label>
+                    <input type="text" [formControlName]="i">
                 </div>
-                <div class="add-ingredient-btn">Add ingredient</div>
+                <div class="add-ingredient-btn" (click)="addIngredients()">Add ingredient</div>
             </div>
             <div class="input-container">
                 <label for="instructions">Instructions:</label>
                 <textarea id="instructions" name="instructions"
-                    rows="6"></textarea>
+                    rows="6" formArrayName="instructions"></textarea>
             </div>
             <button type="submit">Submit Recipe</button>
         </form>
