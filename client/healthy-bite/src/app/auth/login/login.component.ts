@@ -28,9 +28,15 @@ export class LoginComponent {
       return;
     }
 
-    this.userService.login(email!, password!).subscribe((data) => {
-      this.loginForm.reset();
-      this.router.navigate(['/']);
-    });
+    this.userService.login(email!, password!).subscribe({
+      next: (data) => {
+        this.loginForm.reset();
+        this.router.navigate(['/']);
+      },
+      error: (err)=>{
+        console.error(err.error['error']);
+      }
+    }
+    );
   }
 }
