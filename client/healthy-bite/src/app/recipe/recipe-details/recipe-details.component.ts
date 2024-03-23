@@ -72,4 +72,16 @@ export class RecipeDetailsComponent implements OnInit {
     console.log(recipeId);
     console.log(userId);
   }
+
+  removeFavoriteHandler() {
+    const recipeId = this.activatedRoute.snapshot.params['recipeId'];
+    const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
+
+    this.userService
+      .removeFavoriteRecipe(userId, recipeId)
+      .subscribe((data) => {
+        this.router.navigate([`/recipes/details/${recipeId}`]);
+        this.isRecipeFavorite = false;
+      });
+  }
 }
