@@ -28,7 +28,8 @@
                 <h3>Ingredients:</h3>
                 <ul class="ingredient-list">
                     <li
-                        *ngFor="let ingredient of recipe?.ingredients">{{ingredient}}</li>
+                        *ngFor="let ingredient of recipe?.ingredients; let i = index">{{i
+                        + 1}}. {{ingredient}}</li>
                 </ul>
             </div>
             <div class="instructions-section">
