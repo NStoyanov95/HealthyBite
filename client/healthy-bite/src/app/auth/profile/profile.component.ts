@@ -26,7 +26,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.subscription = this.userService.getSingleUser(this.userId).subscribe({
       next: (data) => {
         this.userProfile = data;
-        console.log(this.userProfile);
         this.isLoading = false;
       },
       error: (error) => {

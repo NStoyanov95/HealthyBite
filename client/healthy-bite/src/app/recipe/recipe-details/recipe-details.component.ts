@@ -53,7 +53,6 @@ export class RecipeDetailsComponent implements OnInit {
   handleDelete() {
     const recipeId = this.activatedRoute.snapshot.params['recipeId'];
     this.recipeService.deleteRecipe(recipeId).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['/recipes/catalog']);
     });
   }
@@ -68,9 +67,6 @@ export class RecipeDetailsComponent implements OnInit {
         this.router.navigate([`/recipes/details/${recipeId}`]);
         this.isRecipeFavorite = true;
       });
-
-    console.log(recipeId);
-    console.log(userId);
   }
 
   removeFavoriteHandler() {
