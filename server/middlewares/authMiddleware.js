@@ -2,7 +2,6 @@ const SECRET = "SECRET_KEY";
 const { jwt } = require("../lib/jwt");
 
 const recipeService = require("../services/recipeService");
-const { login } = require("../services/userService");
 
 exports.isAuth = async (req, res, next) => {
   const token = req.cookies["auth-cookie"];
