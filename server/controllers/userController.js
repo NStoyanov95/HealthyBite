@@ -84,4 +84,21 @@ router.get("/:userId", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+router.get("/profile", async (req, res) => {
+  const cookie = req.cookies["auth-cookie"];
+
+  if (!cookie) {
+    res.status(200).send(null);
+  }
+
+  try {
+    const user = await userService.verifyCookie(cookie);
+    res.status(200).send(user);
+  } catch (error) {
+    res.clearCookie("auth-cookie");
+    res.status(401).send({ error: error.message });
+  }
+});
+
 module.exports = router;
