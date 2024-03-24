@@ -29,6 +29,11 @@ export class UserService implements OnDestroy {
     return !!this.user;
   }
 
+  getProfile() {
+    return this.http
+      .get<UserForAuth>('/api/users/profile')
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
   login(email: string, password: string) {
     const body = { email, password };
 
