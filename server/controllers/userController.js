@@ -62,7 +62,7 @@ router.get("/:userId/favorites", async (req, res) => {
   try {
     const user = await userService.getSingleUser(req.params.userId);
     if (!user) {
-      return res.status(404).json({ error: "User not found" });
+      res.status(404).json({ error: "User not found" });
     }
     const favorites = user.favorite;
     res.json(favorites);
@@ -71,7 +71,7 @@ router.get("/:userId/favorites", async (req, res) => {
   }
 });
 
-router.get("/:userId", async (req, res) => {
+router.get("/:userId/profile", async (req, res) => {
   try {
     const user = await userService
       .getSingleUser(req.params.userId)
@@ -79,25 +79,25 @@ router.get("/:userId", async (req, res) => {
       .populate("created")
       .select("-password");
 
-    return res.status(200).json(user);
+    res.status(200).json(user);
   } catch (error) {
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: error.message });
   }
 });
 
 router.get("/profile", async (req, res) => {
   const cookie = req.cookies["auth-cookie"];
 
-  if (!cookie) {
+  if (cookie) {
+    try {
+      const user = await userService.verifyCookie(cookie);
+      res.status(200).send(user);
+    } catch (error) {
+      res.clearCookie("auth-cookie");
+      res.status(401).send({ error: error.message });
+    }
+  } else {
     res.status(200).send(null);
-  }
-
-  try {
-    const user = await userService.verifyCookie(cookie);
-    res.status(200).send(user);
-  } catch (error) {
-    res.clearCookie("auth-cookie");
-    res.status(401).send({ error: error.message });
   }
 });
 
