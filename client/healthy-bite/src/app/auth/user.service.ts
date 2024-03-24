@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
   FavoriteResponse,
@@ -6,26 +6,26 @@ import {
   UserForAuth,
   UserProfile,
 } from '../types/user';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class UserService implements OnDestroy {
   private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
   user$ = this.user$$.asObservable();
 
   user: UserForAuth | undefined;
 
+  userSubscription: Subscription;
+
   constructor(private http: HttpClient) {
-    this.user$.subscribe((user) => {
+    this.userSubscription = this.user$.subscribe((user) => {
       this.user = user;
     });
   }
 
   get isLogged(): boolean {
-    console.log(this.user);
-    
     return !!this.user;
   }
 
@@ -70,5 +70,9 @@ export class UserService {
     return this.http
       .get<string[]>(`/api/users/${userId}/favorites`)
       .pipe(map((favorites) => favorites.includes(recipeId)));
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
   }
 }
