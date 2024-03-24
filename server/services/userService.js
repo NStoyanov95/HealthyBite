@@ -16,10 +16,9 @@ exports.attachCreated = (userId, recipeId) =>
   User.findByIdAndUpdate(userId, { $push: { created: recipeId } });
 
 exports.register = async (userData) => {
-
   const user = await User.findOne({ email: userData.email });
   if (user) {
-      throw new Error('User already exists');
+    throw new Error("User already exists");
   }
 
   if (userData.password !== userData.rePass) {
@@ -45,6 +44,16 @@ exports.login = async (userData) => {
   }
 
   return generateAccessToken(user);
+};
+
+exports.verifyCookie = async (token) => {
+  if (token) {
+    const user = await jwt.verify(token, SECRET);
+
+    if (user) {
+      return user;
+    }
+  }
 };
 
 async function generateAccessToken(user) {
