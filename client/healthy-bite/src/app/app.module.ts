@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeModule } from './recipe/recipe.module';
 import { AppInterceptorProvider } from './app.interceptor';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -23,6 +24,7 @@ import { AppInterceptorProvider } from './app.interceptor';
     RecipeModule,
     AuthModule,
     ReactiveFormsModule,
+    CoreModule,
   ],
   providers: [AppInterceptorProvider],
   bootstrap: [AppComponent],
