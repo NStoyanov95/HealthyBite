@@ -14,10 +14,9 @@ import { BehaviorSubject, Observable, Subscription, map, tap } from 'rxjs';
 export class UserService implements OnDestroy {
   private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
   user$ = this.user$$.asObservable();
+  private userSubscription: Subscription;
 
   user: UserForAuth | undefined;
-
-  userSubscription: Subscription;
 
   constructor(private http: HttpClient) {
     this.userSubscription = this.user$.subscribe((user) => {
@@ -25,15 +24,17 @@ export class UserService implements OnDestroy {
     });
   }
 
-  get isLogged(): boolean {
-    return !!this.user;
-  }
-
   getProfile() {
     return this.http
       .get<UserForAuth>('/api/users/profile')
       .pipe(tap((user) => this.user$$.next(user)));
   }
+
+  get isLogged(): boolean {
+    return !!this.user;
+  }
+
+ 
   login(email: string, password: string) {
     const body = { email, password };
 
@@ -57,7 +58,7 @@ export class UserService implements OnDestroy {
   }
 
   getSingleUser(userId: string) {
-    return this.http.get<UserProfile>(`/api/users/${userId}`);
+    return this.http.get<UserProfile>(`/api/users/${userId}/profile`);
   }
 
   attachFavoriteRecipe(userId: string, recipeId: string) {
