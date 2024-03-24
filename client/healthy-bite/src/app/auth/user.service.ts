@@ -1,42 +1,54 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FavoriteResponse, User, UserProfile } from '../types/user';
-import { Observable, map, tap } from 'rxjs';
+import {
+  FavoriteResponse,
+  User,
+  UserForAuth,
+  UserProfile,
+} from '../types/user';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
+  user$ = this.user$$.asObservable();
 
-  private setLocalService(res: User) {
-    localStorage.setItem('user', JSON.stringify(res));
+  user: UserForAuth | undefined;
+
+  constructor(private http: HttpClient) {
+    this.user$.subscribe((user) => {
+      this.user = user;
+    });
   }
 
   get isLogged(): boolean {
-    return !!localStorage.getItem('user');
+    console.log(this.user);
+    
+    return !!this.user;
   }
 
   login(email: string, password: string) {
     const body = { email, password };
 
     return this.http
-      .post<User>(`/api/users/login`, body)
-      .pipe(tap((res) => this.setLocalService(res)));
+      .post<UserForAuth>(`/api/users/login`, body)
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
   register(email: string, username: string, password: string, rePass: string) {
     const body = { email, username, password, rePass };
 
     return this.http
-      .post<User>(`/api/users/register`, body)
-      .pipe(tap((res) => this.setLocalService(res)));
+      .post<UserForAuth>(`/api/users/register`, body)
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
   logout() {
     return this.http
       .post<User>('/api/users/logout', {})
-      .pipe(tap(() => localStorage.clear()));
+      .pipe(tap(() => this.user$$.next(undefined)));
   }
 
   getSingleUser(userId: string) {
@@ -47,8 +59,11 @@ export class UserService {
     return this.http.post(`/api/users/attach/${userId}`, { userId, recipeId });
   }
 
-  removeFavoriteRecipe(userId: string, recipeId: string){
-    return this.http.post(`/api/users/removeRecipe/${userId}`, {userId, recipeId})
+  removeFavoriteRecipe(userId: string, recipeId: string) {
+    return this.http.post(`/api/users/removeRecipe/${userId}`, {
+      userId,
+      recipeId,
+    });
   }
 
   isRecipeInFavorite(userId: string, recipeId: string): Observable<boolean> {
