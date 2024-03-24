@@ -6,12 +6,12 @@
         <ng-container *ngIf="isLogged">
             <button routerLink="/recipes/create">Add Recipe</button>
             <button
-                [routerLink]="'/profile/'+ getUserIdFromLocalStorage()">Profile</button>
+                [routerLink]="'/users/profile/'+ getUserId()">Profile</button>
             <button (click)="logoutHandler()">Logout</button>
         </ng-container>
         <ng-container *ngIf="!isLogged">
-            <button routerLink="/login">Login</button>
-            <button routerLink="/register">Register</button>
+            <button routerLink="/users/login">Login</button>
+            <button routerLink="/users/register">Register</button>
         </ng-container>
     </nav>
 </header>
