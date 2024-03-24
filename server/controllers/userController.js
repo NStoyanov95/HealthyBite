@@ -9,7 +9,7 @@ router.post("/register", async (req, res) => {
       userData
     );
     res.cookie("auth-cookie", accessToken, { httpOnly: true, secure: true });
-    res.status(200).send({ email, _id, username, accessToken });
+    res.status(200).send({ email, _id, username });
   } catch (error) {
     res.status(500).send({ error: error.message });
   }
@@ -23,7 +23,7 @@ router.post("/login", async (req, res) => {
       userData
     );
     res.cookie("auth-cookie", accessToken, { httpOnly: true, secure: true });
-    res.status(200).send({ email, _id, username, accessToken });
+    res.status(200).send({ email, _id, username });
   } catch (error) {
     res.status(401).send({ error: error.message });
   }
