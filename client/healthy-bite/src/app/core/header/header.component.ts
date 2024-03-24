@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {  UserService } from 'src/app/auth/user.service';
+import { UserService } from 'src/app/auth/user.service';
 
 @Component({
   selector: 'app-header',
@@ -14,9 +14,8 @@ export class HeaderComponent {
     return this.userService.isLogged;
   }
 
-  getUserIdFromLocalStorage(): string {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    return user._id || '';
+  getUserId(): string {
+    return this.userService.user?._id || '';
   }
 
   logoutHandler() {

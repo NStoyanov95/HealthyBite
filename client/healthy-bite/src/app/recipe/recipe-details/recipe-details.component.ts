@@ -21,9 +21,7 @@ export class RecipeDetailsComponent implements OnInit {
   ) {}
 
   get isOwner(): boolean {
-    if (
-      this.recipe?.owner == JSON.parse(localStorage.getItem('user') || '{}')._id
-    ) {
+    if (this.recipe?.owner == this.userService.user?._id) {
       return true;
     }
     return false;
@@ -34,7 +32,7 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
+    const userId = this.userService.user?._id || '';
     const recipeId = this.activatedRoute.snapshot.params['recipeId'];
 
     if (this.isLogged) {
@@ -59,7 +57,7 @@ export class RecipeDetailsComponent implements OnInit {
 
   attachHandler() {
     const recipeId = this.activatedRoute.snapshot.params['recipeId'];
-    const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
+    const userId = this.userService.user?._id || '';
 
     this.userService
       .attachFavoriteRecipe(userId, recipeId)
@@ -71,7 +69,7 @@ export class RecipeDetailsComponent implements OnInit {
 
   removeFavoriteHandler() {
     const recipeId = this.activatedRoute.snapshot.params['recipeId'];
-    const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
+    const userId = this.userService.user?._id || '';
 
     this.userService
       .removeFavoriteRecipe(userId, recipeId)

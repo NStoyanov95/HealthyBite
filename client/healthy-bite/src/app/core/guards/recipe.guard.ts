@@ -34,7 +34,7 @@ export class recipeOwnerActivate implements CanActivate {
     const recipeId = route.params['recipeId'];
     return this.recipeService.getSingleRecipe(recipeId).pipe(
       map((data) => {
-        const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
+        const userId = this.userService.user?._id || '';
         const recipeOwner = data.owner;
         if (recipeOwner !== userId) {
           this.router.navigate(['/404']);

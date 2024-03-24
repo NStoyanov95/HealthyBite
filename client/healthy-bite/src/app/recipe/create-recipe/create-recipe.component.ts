@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Recipe } from 'src/app/types/recipe';
 import { RecipeService } from '../recipe.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/auth/user.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -13,6 +14,7 @@ export class CreateRecipeComponent {
   constructor(
     private fb: FormBuilder,
     private recipeService: RecipeService,
+    private userService: UserService,
     private router: Router
   ) {}
 
@@ -39,7 +41,7 @@ export class CreateRecipeComponent {
       return;
     }
     const recipeData = this.createRecipeForm.value as Recipe;
-    let owner: string = JSON.parse(localStorage.getItem('user') || '{}')._id;
+    let owner: string = this.userService.user?._id || '';
     this.recipeService.createRecipe(recipeData, owner).subscribe((data) => {
       this.createRecipeForm.reset();
       this.router.navigate(['/recipes/catalog']);
