@@ -20,6 +20,12 @@ export interface UserProfile {
   created: Recipe[]
 }
 
+export interface UserForAuth{
+  _id: string;
+  username: string;
+  email: string;
+}
+
 // interface Recipe {
 //   _id: string;
 //   recipeName: string;
