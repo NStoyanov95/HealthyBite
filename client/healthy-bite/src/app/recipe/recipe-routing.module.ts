@@ -5,6 +5,7 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { AuthActivate } from '../core/guards/auth.guard';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
+import { recipeOwnerActivate } from '../core/guards/recipe.guard';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       {
         path: 'edit/:recipeId',
         component: EditRecipeComponent,
+        canActivate: [recipeOwnerActivate],
       },
     ],
   },
