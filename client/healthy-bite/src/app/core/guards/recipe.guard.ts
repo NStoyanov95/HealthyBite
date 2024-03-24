@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { UserService } from 'src/app/auth/user.service';
 import { RecipeService } from 'src/app/recipe/recipe.service';
 
@@ -30,18 +30,18 @@ export class recipeOwnerActivate implements CanActivate {
     if (!this.userService.isLogged) {
       this.router.navigate(['/404']);
       return false;
-    } else {
-      const recipeId = route.params['recipeId'];
-      this.recipeService.getSingleRecipe(recipeId).subscribe((data) => {
-        this.recipeOwner = data.owner;
+    }
+    const recipeId = route.params['recipeId'];
+    return this.recipeService.getSingleRecipe(recipeId).pipe(
+      map((data) => {
         const userId = JSON.parse(localStorage.getItem('user') || '{}')._id;
-        if (this.recipeOwner !== userId) {
-          this.router.navigate(['/']);
+        const recipeOwner = data.owner;
+        if (recipeOwner !== userId) {
+          this.router.navigate(['/404']);
           return false;
         }
         return true;
-      });
-      return true;
-    }
+      })
+    );
   }
 }
