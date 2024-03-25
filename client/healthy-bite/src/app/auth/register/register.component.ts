@@ -10,6 +10,7 @@ import { passwordMatchValidator } from 'src/app/shared/validators/password-match
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  errorMessage: string | undefined = undefined;
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
@@ -53,6 +54,7 @@ export class RegisterComponent {
       },
       error: (err) => {
         console.error(err.error['error']);
+        this.errorMessage = err.error['error'];
       },
     });
   }
