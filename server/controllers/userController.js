@@ -28,7 +28,7 @@ router.post("/register", async (req, res) => {
     res.cookie("auth-cookie", accessToken, { httpOnly: true, secure: true });
     res.status(200).send({ email, _id, username });
   } catch (error) {
-    res.status(500).send({ error: error.message });
+    res.status(403).send({ error: error.message });
   }
 });
 
