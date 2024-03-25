@@ -2,6 +2,23 @@ const router = require("express").Router();
 
 const userService = require("../services/userService");
 
+router.get("/profile", async (req, res) => {
+  const cookie = req.cookies["auth-cookie"];
+
+  if (cookie) {
+    try {
+      const user = await userService.verifyCookie(cookie);
+      console.log(user);
+      res.status(200).send(user);
+    } catch (error) {
+      res.clearCookie("auth-cookie");
+      res.status(401).send({ error: error.message });
+    }
+  } else {
+    res.status(200).send(null);
+  }
+});
+
 router.post("/register", async (req, res) => {
   const userData = req.body;
   try {
@@ -85,20 +102,6 @@ router.get("/:userId/profile", async (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
-  const cookie = req.cookies["auth-cookie"];
 
-  if (cookie) {
-    try {
-      const user = await userService.verifyCookie(cookie);
-      res.status(200).send(user);
-    } catch (error) {
-      res.clearCookie("auth-cookie");
-      res.status(401).send({ error: error.message });
-    }
-  } else {
-    res.status(200).send(null);
-  }
-});
 
 module.exports = router;

@@ -63,7 +63,8 @@ async function generateAccessToken(user) {
       email: user.email,
       username: user.username,
     },
-    SECRET
+    SECRET,
+    {expiresIn: '1m'}
   );
   return {
     _id: user._id,
