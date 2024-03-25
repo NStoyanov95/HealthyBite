@@ -24,6 +24,7 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
     HomeImageComponent,
     CatalogBtnComponent,
     LastThreeRecipesComponent,
+    ErrorMsgComponent,
   ],
 })
 export class SharedModule {}
