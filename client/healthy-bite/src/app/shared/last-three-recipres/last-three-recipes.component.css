@@ -1,10 +1,5 @@
 .recipe-section {
-    background: linear-gradient(
-      0deg,
-      rgb(230 111 22 / 84%) 0%,
-      rgba(232, 157, 81, 0.066) 40%,
-      rgba(246, 232, 191, 0) 100%
-    );
+    background-color: #ffdb9e90;
     width: 80%;
     margin: 0 auto;
     margin-bottom: 10px;

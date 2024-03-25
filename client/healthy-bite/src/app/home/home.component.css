@@ -5,12 +5,8 @@
     width: 90%;
     height: 450px;
     margin: 20px auto;
-    background: linear-gradient(
-      0deg,
-      rgba(236, 99, 2, 0.804) 0%,
-      rgba(240, 152, 0, 0.399) 43%,
-      rgba(248, 180, 108, 0) 100%
-    );
+    background: rgb(255,220,158);
+    background: linear-gradient(0deg, rgba(255, 219, 158, 0.713) 0%, rgba(251,222,169,0.31976540616246496) 44%, rgba(255,219,154,0) 87%);
   
     border-radius: 2px;
     position: relative;
