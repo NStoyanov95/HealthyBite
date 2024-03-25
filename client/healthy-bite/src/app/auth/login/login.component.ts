@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import {  UserService } from '../user.service';
+import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  errorMessage: string | undefined = undefined;
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
@@ -33,10 +34,10 @@ export class LoginComponent {
         this.loginForm.reset();
         this.router.navigate(['/']);
       },
-      error: (err)=>{
+      error: (err) => {
         console.error(err.error['error']);
-      }
-    }
-    );
+        this.errorMessage = err.error['error']
+      },
+    });
   }
 }
