@@ -9,27 +9,22 @@ import { recipeOwnerActivate } from '../core/guards/recipe.guard';
 
 const routes: Routes = [
   {
-    path: 'recipes',
-    children: [
-      {
-        path: 'catalog',
-        component: CatalogComponent,
-      },
-      {
-        path: 'details/:recipeId',
-        component: RecipeDetailsComponent,
-      },
-      {
-        path: 'create',
-        component: CreateRecipeComponent,
-        canActivate: [AuthActivate],
-      },
-      {
-        path: 'edit/:recipeId',
-        component: EditRecipeComponent,
-        canActivate: [recipeOwnerActivate],
-      },
-    ],
+    path: 'catalog',
+    component: CatalogComponent,
+  },
+  {
+    path: 'details/:recipeId',
+    component: RecipeDetailsComponent,
+  },
+  {
+    path: 'create',
+    component: CreateRecipeComponent,
+    canActivate: [AuthActivate],
+  },
+  {
+    path: 'edit/:recipeId',
+    component: EditRecipeComponent,
+    canActivate: [recipeOwnerActivate],
   },
 ];
 
