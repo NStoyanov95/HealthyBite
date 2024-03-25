@@ -6,6 +6,7 @@ import { HomeImageComponent } from './home-image/home-image.component';
 import { CatalogBtnComponent } from './catalog-btn/catalog-btn.component';
 import { LastThreeRecipesComponent } from './last-three-recipres/last-three-recipes.component';
 import { RouterModule } from '@angular/router';
+import { ErrorMsgComponent } from './error-msg/error-msg.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
     HomeImageComponent,
     CatalogBtnComponent,
     LastThreeRecipesComponent,
+    ErrorMsgComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
