@@ -12,9 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecipeModule } from './recipe/recipe.module';
 import { AppInterceptorProvider } from './app.interceptor';
 import { CoreModule } from './core/core.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
