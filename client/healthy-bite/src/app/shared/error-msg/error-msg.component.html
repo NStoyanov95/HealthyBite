@@ -1,1 +1,5 @@
-<p>error-msg works!</p>
+<div class="error-message-container" *ngIf="errorMessage">
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
