@@ -1,15 +1,14 @@
 .error-message-container {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ffcccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    top: 20%;
+    width: 30%;
+    left: 35%   ;
+    background-color: rgba(255, 0, 0, 0.5); /* Adjust the background color and opacity as needed */
+    color: white; /* Adjust the text color */
+    padding: 10px;
+    text-align: center;
+    z-index: 1000; /* Ensure the error message is above other elements */
   }
-  
   .error-message {
     color: #ff0000;
     font-weight: bold;
