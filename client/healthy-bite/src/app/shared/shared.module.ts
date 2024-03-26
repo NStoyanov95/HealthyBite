@@ -7,6 +7,7 @@ import { CatalogBtnComponent } from './catalog-btn/catalog-btn.component';
 import { LastThreeRecipesComponent } from './last-three-recipres/last-three-recipes.component';
 import { RouterModule } from '@angular/router';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
     CatalogBtnComponent,
     LastThreeRecipesComponent,
     ErrorMsgComponent,
+    LoaderComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -25,6 +27,7 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
     CatalogBtnComponent,
     LastThreeRecipesComponent,
     ErrorMsgComponent,
+    LoaderComponent,
   ],
 })
 export class SharedModule {}
