@@ -14,6 +14,9 @@
       <div class="recipes-container">
         <div class="created-recipes">
           <h3>Created Recipes</h3>
+          <div *ngIf="userProfile.created.length == 0">
+            <p>No recipes created yet.</p>
+          </div>
           <div class="recipe" *ngFor="let recipe of userProfile.created">
             <img
               src="{{recipe.imageUrl}}"
@@ -21,19 +24,21 @@
             <h4>{{recipe.recipeName}}</h4>
           </div>
         </div>
-        
 
-          <div class="favorite-recipes">
-            <h3>Favourite Recipes</h3>
-            <div class="recipe" *ngFor="let favorite of userProfile.favorite">
-              <img
-                src="{{favorite.imageUrl}}"
-                alt="Recipe 4">
-              <h4>{{favorite.recipeName}}</h4>
-            </div>
-
+        <div class="favorite-recipes">
+          <h3>Favourite Recipes</h3>
+          <div *ngIf="userProfile.favorite.length == 0">
+            <p>No recipes favorited yet.</p>
           </div>
+          <div class="recipe" *ngFor="let favorite of userProfile.favorite">
+            <img
+              src="{{favorite.imageUrl}}"
+              alt="Recipe 4">
+            <h4>{{favorite.recipeName}}</h4>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
+</div>
