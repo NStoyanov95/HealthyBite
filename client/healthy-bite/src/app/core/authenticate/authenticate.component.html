@@ -1,5 +1,2 @@
-<div *ngIf="isAuthenticating">
-    <!-- Loading indicator -->
-    <p>Loading...</p>
-  </div>
+<app-loader *ngIf="isAuthenticating" />
 <ng-content *ngIf="!isAuthenticating"></ng-content>
