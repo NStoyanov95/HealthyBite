@@ -1,9 +1,8 @@
 .recipe-section {
     background-color: #ffdb9e90;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     margin-bottom: 10px;
-    padding: 10px;
     text-align: center; /* Center the title */
     margin-bottom: 20px; /* Add space between sections */
   }
