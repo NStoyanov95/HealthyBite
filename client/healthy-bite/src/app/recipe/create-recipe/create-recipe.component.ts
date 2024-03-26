@@ -31,7 +31,7 @@ export class CreateRecipeComponent {
 
   addIngredients() {
     const ingredients = this.createRecipeForm.get('ingredients') as FormArray;
-    if (ingredients.length >= 5) {
+    if (ingredients.length >= 9) {
       return;
     }
     ingredients.push(this.fb.control('', Validators.required));
