@@ -2,13 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
   height: 450px;
-  margin: 20px auto;
+  margin: 0 auto;
   background: rgb(255, 220, 158);
   background: linear-gradient(
     0deg,
-    rgba(255, 219, 158, 0.713) 0%,
+    rgb(255 219 158 / 27%) 0%,
     rgba(251, 222, 169, 0.31976540616246496) 44%,
     rgba(255, 219, 154, 0) 87%
   );
@@ -21,8 +20,6 @@ h1 {
   font-size: 2.5rem;
   color: #000000;
   margin-top: 0;
-  margin: 5px;
-  padding: 10px;
   text-align: left;
   font-family: "Roboto", sans-serif;
 }

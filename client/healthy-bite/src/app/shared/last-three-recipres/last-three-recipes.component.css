@@ -1,13 +1,17 @@
 .recipe-section {
-  background-color: #ffdb9e90;
-  width: 90%;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 220, 158, 0) 0%,
+    rgba(251, 222, 169, 0.31976540616246496) 44%,
+    rgb(255 238 208 / 65%) 87%
+  );
   margin: 0 auto;
   margin-bottom: 10px;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.recipe-section h2 {
+.recipe-section h3 {
   padding: 10px;
   font-family: "Roboto", sans-serif;
 }
@@ -37,17 +41,17 @@
 .recipe-image {
   width: 200px;
   height: 200px;
-  box-shadow: 0px 0px 10px 2px rgb(0 0 0 / 50%);
-  border-radius: 180px;
+  box-shadow: 0px 0px 10px 0 rgb(0 0 0 / 50%);
+  border-radius: 2px;
 }
 
 .recipe-title {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
+  width: 40%;
+  background-color: rgb(255 240 222);
+  color: black;
   padding: 5px;
   margin: 0;
   border-bottom-left-radius: 5px;

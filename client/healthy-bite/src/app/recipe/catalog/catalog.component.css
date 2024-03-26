@@ -1,13 +1,5 @@
-h1 {
+h2 {
     text-align: center;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    min-height: auto;
-    width: 80%;
-    margin: 20px auto;
-    background-color: #ffa50014;
   }
   
   .bottom-section {
@@ -20,10 +12,11 @@ h1 {
   .container {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    min-height: auto;
+    width: 90%;
     margin: 20px auto;
     border-radius: 5px;
-  
+    background-color: #ffa50014;  
   }
   
   .cards {

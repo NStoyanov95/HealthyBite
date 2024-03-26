@@ -1,17 +1,16 @@
 <header class="header">
     <div class="logo" routerLink="/">HealthyBite</div>
     <nav class="nav">
-        <button routerLink="/">Home</button>
-        <button routerLink="/recipes/catalog">Catalog</button>
+        <button routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Home</button>
+        <button routerLink="/recipes/catalog" routerLinkActive="active">Catalog</button>
         <ng-container *ngIf="isLogged">
-            <button routerLink="/recipes/create">Add Recipe</button>
-            <button
-                [routerLink]="'/users/profile/'+ getUserId()">Profile</button>
+            <button routerLink="/recipes/create" routerLinkActive="active">Add Recipe</button>
+            <button [routerLink]="'/users/profile/'+ getUserId()" routerLinkActive="active">Profile</button>
             <button (click)="logoutHandler()">Logout</button>
         </ng-container>
         <ng-container *ngIf="!isLogged">
-            <button routerLink="/users/login">Login</button>
-            <button routerLink="/users/register">Register</button>
+            <button routerLink="/users/login" routerLinkActive="active">Login</button>
+            <button routerLink="/users/register" routerLinkActive="active">Register</button>
         </ng-container>
     </nav>
 </header>
