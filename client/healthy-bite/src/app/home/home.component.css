@@ -1,73 +1,72 @@
 .homepage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    height: 450px;
-    margin: 20px auto;
-    background: rgb(255,220,158);
-    background: linear-gradient(0deg, rgba(255, 219, 158, 0.713) 0%, rgba(251,222,169,0.31976540616246496) 44%, rgba(255,219,154,0) 87%);
-  
-    border-radius: 2px;
-    position: relative;
-  }
-  
-  /* Style for the h1 element */
-  h1 {
-    font-size: 2.5rem;
-    color: #000000; /* White text color */
-    margin-top: 0;
-    margin: 5px;
-    padding: 10px;
-    text-align: left;
-    font-family: "Dancing Script", cursive; /* Fancy font */
-  }
-  
-  /* Style for the green text */
-  .green-text {
-    color: #27ae60; /* Green color */
-  }
-  
-  /* Style for the paragraph */
-  p {
-    font-size: 1.2rem; /* Font size increased for better readability */
-    color: #565656; /* White text color */
-    font-family: "Roboto", sans-serif; /* Fancy font */
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 450px;
+  margin: 20px auto;
+  background: rgb(255, 220, 158);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 219, 158, 0.713) 0%,
+    rgba(251, 222, 169, 0.31976540616246496) 44%,
+    rgba(255, 219, 154, 0) 87%
+  );
 
-  
-  @media (max-width: 1100px) {
-    h1 {
-      font-size: 2rem; /* Decrease font size for smaller screens */
-    }
+  border-radius: 2px;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-top: 0;
+  margin: 5px;
+  padding: 10px;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+}
+
+.green-text {
+  color: #27ae60;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #565656;
+  font-family: "Roboto", sans-serif;
+}
+
+@media (max-width: 1100px) {
+  h1 {
+    font-size: 2rem;
   }
-  
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.5rem; /* Decrease font size for even smaller screens */
-    }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
   }
-  
+}
+
+.home-text {
+  margin: 40px;
+  position: relative;
+  left: 6%;
+  bottom: 5%;
+}
+
+@media (max-width: 768px) {
+  .homepage {
+    height: auto;
+    flex-direction: column;
+    padding: 20px;
+  }
+
   .home-text {
-    margin: 40px;
-    position: relative;
-    left: 6%;
-    bottom: 5%;
+    margin: 20px 0;
+    text-align: center;
+    left: auto;
+    bottom: auto;
   }
-  
-  @media (max-width: 768px) {
-    .homepage {
-      height: auto;
-      flex-direction: column;
-      padding: 20px;
-    }
-  
-    .home-text {
-      margin: 20px 0;
-      text-align: center;
-      left: auto;
-      bottom: auto;
-    }
-  }
-  
+}
