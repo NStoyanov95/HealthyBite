@@ -1,115 +1,64 @@
 .recipe-card {
-    max-width: 50%;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    background-color: #ffa50014;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center horizontally */
-    box-shadow: 0px 0px 4px 0px #0000001d;
-  }
-  
-  .recipe-image {
-    width: 100%;
-    height: 300px;
-    display: block;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
+  max-width: 70%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: #ffa50014;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative; /* Required for absolute positioning */
+}
+
+.recipe-details {
+  padding: 20px;
+}
+
+.recipe-title {
+  font-size: 24px;
+}
+.recipe-description{
+  color: #707070;
+}
+
+.recipe-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.recipe-image {
+  max-width: 60%; /* Ensure the image doesn't exceed the container width */
+  height: auto; /* Maintain aspect ratio */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.add-to-favorites-container {
+  display: flex;
+  justify-content: center;
+}
+
+.details-btn {
+  margin: 5px 5px; /* Adjust button margin */
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-favorites-btn:hover {
+  background-color: #ff4500;
+}
+
+@media only screen and (min-width: 600px) {
   .recipe-details {
-    padding: 20px;
-  }
-  
-  .recipe-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .recipe-description {
-    font-style: italic;
-    color: #555;
-  }
-  
-  .recipe-sections {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Ensure sections take full width */
+    align-items: center;
   }
-  
-  .ingredients-section{
-  background-color: #8e8e8e3f;
-  padding: 10px;
-  }
-  .instructions-section {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    width: 300px;
-  }
-  
-  .ingredients-section h3,
-  .instructions-section h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .ingredient-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .ingredient-list li {
-    margin-bottom: 5px;
-  }
-  
-  .recipe-instructions {
-    line-height: 1.5;
-    word-wrap: break-word;
-  }
-  
-  @media only screen and (min-width: 600px) {
-    .recipe-sections {
-      flex-direction: row;
-    }
-  
-    .ingredients-section,
-    .instructions-section {
-      flex-grow: 1;
-    }
-  
-    .ingredients-section {
-      padding-right: 10px;
-      border-right: 1px solid #ccc;
-    }
-  
-    .instructions-section {
-      padding-left: 10px;
-      
-    }
-  }
-  .add-to-favorites-container {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    margin-bottom: 20px; /* Add some space between image and button */
-  }
-  
-  .details-btn {
-    margin: 15px;
-    background-color: #ff6347; /* Coral color */
-    color: #fff; /* White text color */
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .add-to-favorites-btn:hover {
-    background-color: #ff4500; /* Darker coral color on hover */
-  }
-  
+}

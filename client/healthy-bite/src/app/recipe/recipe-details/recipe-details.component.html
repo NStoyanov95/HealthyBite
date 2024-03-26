@@ -1,41 +1,34 @@
 <div class="recipe-card">
-    <img src="{{recipe?.imageUrl}}" alt="Recipe Image" class="recipe-image">
     <div class="recipe-details">
-        <ng-container *ngIf="isLogged">
-            <ng-container class="add-to-favorites-container"
-                *ngIf="!isOwner && !isRecipeFavorite">
-                <button class="details-btn" (click)="attachHandler()">Add to
-                    Favorites</button>
-            </ng-container>
-            <ng-container class="add-to-favorites-container"
-                *ngIf="!isOwner && isRecipeFavorite">
-                <button class="details-btn"
-                    (click)="removeFavoriteHandler()">Remove from
-                    Favorites</button>
-            </ng-container>
-            <ng-container class="add-to-favorites-container" *ngIf="isOwner">
-                <button class="details-btn"
-                    [routerLink]="'/recipes/edit/'+recipe?._id">Edit</button>
-                <button (click)="handleDelete()"
-                    class="details-btn">Delete</button>
-            </ng-container>
+      <h2 class="recipe-title">{{recipe?.recipeName}}</h2>
+      <div class="recipe-image-container">
+        <img src="{{recipe?.imageUrl}}" alt="Recipe Image" class="recipe-image">
+      </div>
+      <ng-container *ngIf="isLogged">
+        <ng-container class="add-to-favorites-container" *ngIf="!isOwner && !isRecipeFavorite">
+          <button class="details-btn" (click)="attachHandler()">Add to Favorites</button>
         </ng-container>
-        <h2 class="recipe-title">{{recipe?.recipeName}}</h2>
-        <p class="recipe-description">Created: {{recipe?.createdAt |
-            date:'yyyy-MM-dd'}}</p>
-        <div class="recipe-sections">
-            <div class="ingredients-section">
-                <h3>Ingredients:</h3>
-                <ul class="ingredient-list">
-                    <li
-                        *ngFor="let ingredient of recipe?.ingredients; let i = index">{{i
-                        + 1}}. {{ingredient}}</li>
-                </ul>
-            </div>
-            <div class="instructions-section">
-                <h3>Instructions:</h3>
-                <p class="recipe-instructions">{{recipe?.instructions}}</p>
-            </div>
+        <ng-container class="add-to-favorites-container" *ngIf="!isOwner && isRecipeFavorite">
+          <button class="details-btn" (click)="removeFavoriteHandler()">Remove from Favorites</button>
+        </ng-container>
+        <ng-container class="add-to-favorites-container" *ngIf="isOwner">
+          <button class="details-btn" [routerLink]="'/recipes/edit/'+recipe?._id">Edit</button>
+          <button (click)="handleDelete()" class="details-btn">Delete</button>
+        </ng-container>
+      </ng-container>
+      <p class="recipe-description">Created: {{recipe?.createdAt | date:'yyyy-MM-dd'}}</p>
+      <div class="recipe-sections">
+        <div class="ingredients-section">
+          <h3>Ingredients:</h3>
+          <ul class="ingredient-list">
+            <li *ngFor="let ingredient of recipe?.ingredients; let i = index">{{i + 1}}. {{ingredient}}</li>
+          </ul>
         </div>
+        <div class="instructions-section">
+          <h3>Instructions:</h3>
+          <p class="recipe-instructions">{{recipe?.instructions}}</p>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  
