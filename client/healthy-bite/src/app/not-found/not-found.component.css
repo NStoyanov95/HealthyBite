@@ -1,53 +1,53 @@
 .container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-image: url('../../assets/img/404-background.PNG'); /* Your image path */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(255 251 246 / 33%)
-  }
-  
-  .content {
-    position: relative; /* Change to relative */
-    z-index: 1; /* Ensure content is above overlay */
-    text-align: center;
-    color: white;
-  }
-   h3{
-    color: black;
-    font-size: 50px;
-   }
-  .content p {
-    color: black;
-    font-size: 40px;
-    margin: 10px 0;
-  }
-  
-  .content button {
-    padding: 10px 20px;
-    background-color: #ff7b00;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .content button:hover {
-    background-color: #ff7b00e2;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/img/404-background.PNG"); /* Your image path */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  }
-  
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 251 246 / 33%);
+}
+
+.content {
+  position: relative; /* Change to relative */
+  z-index: 1; /* Ensure content is above overlay */
+  text-align: center;
+  color: white;
+  background-color: #ffeddea3;
+  padding: 10px;
+}
+h3 {
+  color: black;
+  font-size: 50px;
+}
+.content p {
+  color: black;
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.content button {
+  padding: 10px 20px;
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.content button:hover {
+  background-color: #ff7b00e2;
+}
