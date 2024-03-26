@@ -16,12 +16,12 @@
           <button (click)="handleDelete()" class="details-btn">Delete</button>
         </ng-container>
       </ng-container>
-      <p class="recipe-description">Created: {{recipe?.createdAt | date:'yyyy-MM-dd'}}</p>
+      <p class="recipe-description">Created at: {{recipe?.createdAt | date:'yyyy-MM-dd'}}</p>
       <div class="recipe-sections">
         <div class="ingredients-section">
           <h3>Ingredients:</h3>
           <ul class="ingredient-list">
-            <li *ngFor="let ingredient of recipe?.ingredients; let i = index">{{i + 1}}. {{ingredient}}</li>
+            <li *ngFor="let ingredient of recipe?.ingredients; let i = index">{{ingredient}}</li>
           </ul>
         </div>
         <div class="instructions-section">

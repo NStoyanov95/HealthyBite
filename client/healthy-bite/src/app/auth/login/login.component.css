@@ -1,79 +1,80 @@
-
-
 :host {
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-  
-  .container {
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .form-container {
-    background-color: #ffa50014;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px -10px black;
-  }
-  
-  .form {
-    display: block;
-  }
-  
-  .form h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
-  .input-container {
-    position: relative;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center; /* Center input vertically */
-  }
-  
-  .input-container input {
-    flex: 1; /* Take up remaining space */
-    padding: 15px;
-    border: none;
-    border-radius: 25px;
-    background-color: rgba(248, 248, 248, 0.9); /* Updated to rgba */
-    outline: none;
-  }
-  
-  
-  .input-container i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 20px;
-    color: #888;
-  }
-  
-  button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 25px;
-    background-color: #f2994a;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #ff8c00;
-  }
-  
-  .error{
-    font-size: 12px ;
-    color: red  ;
-  }
-  
-  
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.container {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-container {
+  background-color: #ffa50014;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px -10px black;
+}
+
+.form {
+  display: block;
+}
+
+.form h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center; /* Center input vertically */
+}
+
+.input-container input {
+  flex: 1; /* Take up remaining space */
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  background-color: rgba(248, 248, 248, 0.9); /* Updated to rgba */
+  outline: none;
+}
+
+.input-container i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  color: #888;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  background-color: #f2994a;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff8c00;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+}
+
+.register-btn {
+  color: blueviolet;
+  cursor: pointer;
+  text-decoration: underline;
+}

@@ -28,7 +28,7 @@
 }
 
 .recipe-image {
-  max-width: 60%; /* Ensure the image doesn't exceed the container width */
+  max-width: 50%; /* Ensure the image doesn't exceed the container width */
   height: auto; /* Maintain aspect ratio */
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
