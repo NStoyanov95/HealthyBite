@@ -20,7 +20,7 @@
           <div class="recipe" *ngFor="let recipe of userProfile.created">
             <img
               src="{{recipe.imageUrl}}"
-              alt="Recipe 1">
+              alt="Recipe 1" [routerLink]="'/recipes/details/'+recipe._id">
             <h4>{{recipe.recipeName}}</h4>
           </div>
         </div>
@@ -33,7 +33,7 @@
           <div class="recipe" *ngFor="let favorite of userProfile.favorite">
             <img
               src="{{favorite.imageUrl}}"
-              alt="Recipe 4">
+              alt="Recipe 4" [routerLink]="'/recipes/details/'+favorite._id">
             <h4>{{favorite.recipeName}}</h4>
           </div>
 
