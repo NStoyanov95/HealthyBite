@@ -66,4 +66,15 @@ router.put("/edit/:recipeId", isAuth, async (req, res) => {
   }
 });
 
+router.get("/search", async(req, res) => {
+  const { recipeName } = req.query;
+
+  try {
+    const recipes = await recipeService.search(recipeName)
+    res.json(recipes)
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 module.exports = router;
