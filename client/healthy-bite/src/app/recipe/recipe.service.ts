@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Recipe } from '../types/recipe';
+import { retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +37,9 @@ export class RecipeService {
 
   deleteRecipe(recipeId: string) {
     return this.http.delete<Recipe>(`/api/recipes/delete/${recipeId}`);
+  }
+
+  searchRecipe(title:string){
+    return this.http.get<Recipe[]>(`/api/recipes/search?title=${title}`)
   }
 }
