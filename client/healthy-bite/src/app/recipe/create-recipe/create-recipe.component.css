@@ -48,6 +48,15 @@
   .button-container {
     text-align: center;
   }
+
+  .difficulty{
+    padding: 5px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 5px;
+
+  }
   .add-ingredient-btn{
     margin: 10px;
     padding: 10px 20px;

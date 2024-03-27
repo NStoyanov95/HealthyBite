@@ -21,6 +21,7 @@ export class CreateRecipeComponent {
   createRecipeForm = this.fb.group({
     recipeName: ['', Validators.required],
     imageUrl: ['', Validators.required],
+    difficulty: ['', Validators.required],
     ingredients: this.fb.array([], Validators.required),
     instructions: ['', Validators.required],
   });

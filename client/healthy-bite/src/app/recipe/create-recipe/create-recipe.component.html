@@ -23,6 +23,14 @@
           *ngIf="createRecipeForm.get('imageUrl')?.invalid">Image
           is required</p>
       </ng-container>
+      <div class="input-container">
+        <label for="difficulty">Difficulty:</label>
+        <select class="difficulty" formControlName="difficulty">
+          <option value="Easy">Easy</option>
+          <option value="Moderate">Moderate</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
       <div formArrayName="ingredients">
         <div class="input-container"
           *ngFor="let ingredientControl of ingredientControls; let i = index">
