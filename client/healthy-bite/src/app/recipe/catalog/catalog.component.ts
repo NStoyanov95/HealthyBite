@@ -17,14 +17,24 @@ export class CatalogComponent implements OnInit {
     recipeName: [''],
   });
 
-  searchHandler(){
-    console.log(this.searchForm.value.recipeName);
-    
+  ngOnInit(): void {
+    this.loadAllRecipes();
   }
 
-  ngOnInit(): void {
+  loadAllRecipes() {
     this.recipeService.getAllRecipes().subscribe((data) => {
       this.recipes = data;
     });
+  }
+
+  searchHandler() {
+    const recipeName = this.searchForm.value.recipeName;
+    if (recipeName?.trim()) {
+      this.recipeService.searchRecipe(recipeName).subscribe((data) => {
+        this.recipes = data;
+      });
+    } else {
+      this.loadAllRecipes();
+    }
   }
 }

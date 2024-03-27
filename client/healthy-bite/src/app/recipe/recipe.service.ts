@@ -40,6 +40,6 @@ export class RecipeService {
   }
 
   searchRecipe(recipeName:string){
-    return this.http.get<Recipe[]>(`/api/recipes/search?title=${recipeName}`)
+    return this.http.get<Recipe[]>(`/api/recipes/search?recipeName=${recipeName}`)
   }
 }
