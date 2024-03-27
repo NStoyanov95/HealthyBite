@@ -14,11 +14,11 @@ export class CatalogComponent implements OnInit {
   constructor(private recipeService: RecipeService, private fb: FormBuilder) {}
 
   searchForm = this.fb.group({
-    title: [''],
+    recipeName: [''],
   });
 
   searchHandler(){
-    console.log(this.searchForm.value);
+    console.log(this.searchForm.value.recipeName);
     
   }
 

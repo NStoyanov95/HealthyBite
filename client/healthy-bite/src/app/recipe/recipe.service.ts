@@ -39,7 +39,7 @@ export class RecipeService {
     return this.http.delete<Recipe>(`/api/recipes/delete/${recipeId}`);
   }
 
-  searchRecipe(title:string){
-    return this.http.get<Recipe[]>(`/api/recipes/search?title=${title}`)
+  searchRecipe(recipeName:string){
+    return this.http.get<Recipe[]>(`/api/recipes/search?title=${recipeName}`)
   }
 }
