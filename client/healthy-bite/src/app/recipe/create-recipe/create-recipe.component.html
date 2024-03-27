@@ -31,6 +31,11 @@
           <option value="Hard">Hard</option>
         </select>
       </div>
+      <ng-container *ngIf="createRecipeForm.get('difficulty')?.touched">
+        <p class="error"
+          *ngIf="createRecipeForm.get('difficulty')?.invalid">Difficulty level
+          is required</p>
+      </ng-container>
       <div formArrayName="ingredients">
         <div class="input-container"
           *ngFor="let ingredientControl of ingredientControls; let i = index">
