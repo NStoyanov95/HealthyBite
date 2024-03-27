@@ -14,6 +14,10 @@ const recipeSchema = new mongoose.Schema(
     ingredients: {
       type: Array,
     },
+    difficulty: {
+      type: String,
+      required: true,
+    },
     instructions: {
       type: String,
       required: true,
