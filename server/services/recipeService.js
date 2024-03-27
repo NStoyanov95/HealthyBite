@@ -1,3 +1,4 @@
+const { options } = require("../controllers/recipeController");
 const Recipe = require("../models/Recipe");
 
 exports.getAll = () => Recipe.find();
@@ -12,3 +13,6 @@ exports.deleteRecipe = (recipeId) => Recipe.findByIdAndDelete(recipeId);
 
 exports.updateRecipe = (recipeId, recipeData) =>
   Recipe.findByIdAndUpdate(recipeId, recipeData);
+
+exports.search = (recipeName) =>
+  Recipe.find({ recipeName: { $regex: recipeName, $options: "i" } });
