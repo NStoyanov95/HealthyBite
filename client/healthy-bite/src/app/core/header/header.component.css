@@ -27,7 +27,6 @@
   }
   
   button:hover {
-    /* background-color: rgba(89, 179, 5, 0.571); */
     color: #27ae60;
     font-weight: bold;
   }
@@ -35,5 +34,6 @@
   .active{
     color: #27ae60;
     font-weight: bold;
+    text-decoration: underline;
   }
   
