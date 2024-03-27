@@ -22,6 +22,7 @@ export class EditRecipeComponent implements OnInit {
   editRecipeForm = this.fb.group({
     recipeName: ['', Validators.required],
     imageUrl: ['', Validators.required],
+    difficulty: ['', Validators.required],
     ingredients: this.fb.array([], Validators.required),
     instructions: ['', Validators.required],
   });
@@ -49,6 +50,7 @@ export class EditRecipeComponent implements OnInit {
     this.editRecipeForm.patchValue({
       recipeName: recipeData.recipeName,
       imageUrl: recipeData.imageUrl,
+      difficulty: recipeData.difficulty,
       instructions: recipeData.instructions,
     });
 

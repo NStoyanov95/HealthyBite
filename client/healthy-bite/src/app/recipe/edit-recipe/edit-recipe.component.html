@@ -1,6 +1,7 @@
 <div class="container">
     <div class="form-container">
-        <form id="editRecipeForm" [formGroup]="editRecipeForm" (ngSubmit)="editRecipeHandler()">
+        <form id="editRecipeForm" [formGroup]="editRecipeForm"
+            (ngSubmit)="editRecipeHandler()">
             <h2>Edit Recipe</h2>
             <div class="input-container">
                 <label for="recipe-name">Recipe Name:</label>
@@ -23,6 +24,14 @@
                     *ngIf="editRecipeForm.get('imageUrl')?.invalid">Image
                     is required</p>
             </ng-container>
+            <div class="input-container">
+                <label for="difficulty">Difficulty:</label>
+                <select class="difficulty" formControlName="difficulty">
+                    <option value="Easy">Easy</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </div>
             <div id="ingredients" formArrayName="ingredients">
                 <div class="input-container"
                     *ngFor="let ingredientControl of ingredientControls; let i = index">
