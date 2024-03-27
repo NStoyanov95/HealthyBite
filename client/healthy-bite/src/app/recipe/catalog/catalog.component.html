@@ -1,4 +1,12 @@
 <div class="container">
+    <div class="search-container">
+        <form class="search-form" [formGroup]="searchForm" (ngSubmit)="searchHandler()">
+            <input type="text" placeholder="Search recipes..."  name="searchQuery" formControlName="title">
+            <button type="submit" class="search-button" >
+                <i class="fas fa-search fa-2x"></i>
+            </button>
+        </form>
+    </div>
     <h2>Recipes Catalog</h2>
     <div *ngIf="recipes.length == 0">
         <h2>No recipes created yet.</h2>
