@@ -3,6 +3,7 @@ export interface Recipe {
   recipeName: string;
   imageUrl: string;
   ingredients: string[];
+  difficulty: string;
   instructions: string;
   owner?: string;
   createdAt: Date;
