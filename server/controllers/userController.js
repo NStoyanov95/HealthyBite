@@ -8,7 +8,6 @@ router.get("/profile", async (req, res) => {
   if (cookie) {
     try {
       const user = await userService.verifyCookie(cookie);
-      console.log(user);
       res.status(200).send(user);
     } catch (error) {
       res.clearCookie("auth-cookie");

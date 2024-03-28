@@ -1,4 +1,4 @@
-const { options } = require("../controllers/recipeController");
+
 const Recipe = require("../models/Recipe");
 
 exports.getAll = () => Recipe.find();
