@@ -17,8 +17,14 @@ export class LoginComponent {
   ) {}
 
   loginForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.minLength(5)]],
+    email: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}'),
+      ],
+    ],
+    password: ['', [Validators.required, Validators.minLength(5)]],
   });
 
   loginHandler() {
@@ -36,7 +42,7 @@ export class LoginComponent {
       },
       error: (err) => {
         console.error(err.error['error']);
-        this.errorMessage = err.error['error']
+        this.errorMessage = err.error['error'];
       },
     });
   }

@@ -10,13 +10,31 @@
           formControlName="email" />
         <i class="fas fa-envelope"></i>
       </div>
+      <ng-container *ngIf="loginForm.get('email')?.touched">
+        <p class="error"
+          *ngIf="loginForm.get('email')?.errors?.['required']">Email
+          is required</p>
+        <p class="error"
+          *ngIf="loginForm.get('email')?.errors?.['pattern']">Invalid
+          Email</p>
+      </ng-container>
       <div class="input-container">
         <input id="password" type="password" name="password"
           placeholder="password" formControlName="password" />
         <i class="fas fa-lock"></i>
       </div>
+      <ng-container *ngIf="loginForm.get('password')?.touched">
+        <p class="error"
+          *ngIf="loginForm.get('password')?.errors?.['required']">Password
+          is required</p>
+        <p class="error"
+          *ngIf="loginForm.get('password')?.errors?.['minlength']">Password
+          should
+          be at least 5 characters long</p>
+      </ng-container>
       <button>Login</button>
-      <p>Don't have an account? <span class="register-btn" routerLink="/users/register">Register</span></p>
+      <p>Don't have an account? <span class="register-btn"
+          routerLink="/users/register">Register</span></p>
     </form>
   </div>
 </div>
