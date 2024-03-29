@@ -7,6 +7,7 @@ import { LastThreeRecipesComponent } from './last-three-recipres/last-three-reci
 import { RouterModule } from '@angular/router';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { LoaderComponent } from './loader/loader.component';
+import { TrimInputDirective } from './trim-input.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { LoaderComponent } from './loader/loader.component';
     LastThreeRecipesComponent,
     ErrorMsgComponent,
     LoaderComponent,
+    TrimInputDirective,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -25,6 +27,7 @@ import { LoaderComponent } from './loader/loader.component';
     LastThreeRecipesComponent,
     ErrorMsgComponent,
     LoaderComponent,
+    TrimInputDirective,
   ],
 })
 export class SharedModule {}
