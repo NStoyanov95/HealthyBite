@@ -6,9 +6,10 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [CatalogComponent, RecipeDetailsComponent, CreateRecipeComponent, EditRecipeComponent],
-  imports: [CommonModule,RecipeRoutingModule, ReactiveFormsModule],
+  imports: [CommonModule,RecipeRoutingModule, ReactiveFormsModule, SharedModule],
 })
 export class RecipeModule {}
