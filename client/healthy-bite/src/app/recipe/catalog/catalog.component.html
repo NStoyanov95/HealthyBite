@@ -1,23 +1,29 @@
 <div class="container">
     <div class="search-container">
-        <form class="search-form" [formGroup]="searchForm" (ngSubmit)="searchHandler()">
-            <input type="text" placeholder="Search recipes..."  name="searchQuery" formControlName="recipeName">
-            <button type="submit" class="search-button" >
+        <form class="search-form" [formGroup]="searchForm"
+            (ngSubmit)="searchHandler()">
+            <input type="text" placeholder="Search recipes..."
+                name="searchQuery" formControlName="recipeName">
+            <button type="submit" class="search-button">
                 <i class="fas fa-search fa-2x"></i>
             </button>
         </form>
     </div>
     <h2>Recipes Catalog</h2>
-    <div *ngIf="recipes.length == 0">
-        <h2>No recipes found.</h2>
-      </div>
-    <div class="bottom-section">
-        <div class="recipe-card" *ngFor="let recipe of recipes">
-            <a class="recipe-link" [routerLink]="'/recipes/details/'+recipe._id">
-                <img src="{{recipe.imageUrl}}" alt="Recipe Image"
-                    class="recipe-image">
-                <h2 class="recipe-title">{{recipe.recipeName}}</h2>
-            </a>
+    <div *ngIf="isLoading">Loading..</div>
+    <div *ngIf="!isLoading">
+        <div *ngIf="recipes.length == 0">
+            <h2>No recipes found.</h2>
+        </div>
+        <div class="bottom-section">
+            <div class="recipe-card" *ngFor="let recipe of recipes">
+                <a class="recipe-link"
+                    [routerLink]="'/recipes/details/'+recipe._id">
+                    <img src="{{recipe.imageUrl}}" alt="Recipe Image"
+                        class="recipe-image">
+                    <h2 class="recipe-title">{{recipe.recipeName}}</h2>
+                </a>
+            </div>
         </div>
     </div>
 </div>

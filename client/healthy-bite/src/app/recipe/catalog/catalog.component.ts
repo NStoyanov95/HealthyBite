@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class CatalogComponent implements OnInit {
   recipes: Recipe[] = [];
   searchSubscription: Subscription | undefined;
+  isLoading: boolean = true;
 
   constructor(private recipeService: RecipeService, private fb: FormBuilder) {}
 
@@ -30,6 +31,7 @@ export class CatalogComponent implements OnInit {
   loadAllRecipes() {
     this.recipeService.getAllRecipes().subscribe((data) => {
       this.recipes = data;
+      this.isLoading = false
     });
   }
 
@@ -38,6 +40,7 @@ export class CatalogComponent implements OnInit {
     if (recipeName?.trim()) {
       this.recipeService.searchRecipe(recipeName).subscribe((data) => {
         this.recipes = data;
+      this.isLoading = false
       });
     } else {
       this.loadAllRecipes();
