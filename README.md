@@ -32,4 +32,24 @@ Welcome to HealthyBite, where good food meets good health. Our Angular-based pla
 
 Embark on a culinary adventure with HealthyBite and discover the joy of healthy eating!
 
+## Views
+- Homepage view: Showcasing the latest three recipe:
+![Project Screenshot](./screenshots/homepage.png)
+- Catalog View: Browse and search through created recipes:
+![Project Screenshot](./screenshots/catalog.png)
+- Create Recipe View:
+![Project Screenshot](./screenshots/create-recipe.png)
+- Details View as Guest:
+![Project Screenshot](./screenshots/details-guest.png)
+- Details View as User:
+![Project Screenshot](./screenshots/details-user.png)
+- Details View as Owner:
+![Project Screenshot](./screenshots/details-owner.png)
+- Profile View:
+![Project Screenshot](./screenshots/profile.png)
+
+
+
+  
+
 
