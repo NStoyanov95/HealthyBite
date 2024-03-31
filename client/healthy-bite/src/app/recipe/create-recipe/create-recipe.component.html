@@ -16,7 +16,7 @@
         <label for="recipe-image-url">Recipe Image URL:</label>
         <input type="url" id="recipe-image-url" name="recipeImageUrl"
           formControlName="imageUrl"
-          placeholder="Enter image URL" appTrimInput>
+          appTrimInput>
       </div>
       <ng-container *ngIf="createRecipeForm.get('imageUrl')?.touched">
         <p class="error"

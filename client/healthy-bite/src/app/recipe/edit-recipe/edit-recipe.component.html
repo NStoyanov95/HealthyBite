@@ -17,7 +17,7 @@
             <div class="input-container">
                 <label for="recipe-image-url">Recipe Image URL:</label>
                 <input type="url" id="recipe-image-url" name="recipeImageUrl"
-                    placeholder="Enter image URL" formControlName="imageUrl" appTrimInput>
+                    formControlName="imageUrl" appTrimInput>
             </div>
             <ng-container *ngIf="editRecipeForm.get('imageUrl')?.touched">
                 <p class="error"
@@ -54,7 +54,8 @@
             <div class="input-container">
                 <label for="instructions">Instructions:</label>
                 <textarea id="instructions" name="instructions"
-                    rows="6" formControlName="instructions" appTrimInput></textarea>
+                    rows="6" formControlName="instructions"
+                    appTrimInput></textarea>
             </div>
             <ng-container *ngIf="editRecipeForm.get('instructions')?.touched">
                 <p class="error"
