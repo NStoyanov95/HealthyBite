@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/types/recipe';
 import { RecipeService } from '../recipe.service';
 import { FormBuilder } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
@@ -10,6 +11,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class CatalogComponent implements OnInit {
   recipes: Recipe[] = [];
+  searchSubscription: Subscription | undefined;
 
   constructor(private recipeService: RecipeService, private fb: FormBuilder) {}
 
@@ -19,6 +21,10 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAllRecipes();
+
+    this.searchSubscription = this.searchForm.valueChanges.subscribe(() => {
+      this.searchHandler();
+    });
   }
 
   loadAllRecipes() {
