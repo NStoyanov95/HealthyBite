@@ -9,12 +9,14 @@ import { Recipe } from 'src/app/types/recipe';
 })
 export class LastThreeRecipesComponent implements OnInit {
   recipes: Recipe[] = [];
+  isLoading: boolean = true;
 
   constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {
     this.recipeService.getLastThreeRecipes().subscribe((data) => {
       this.recipes = data;
+      this.isLoading = false;
     });
   }
 }
