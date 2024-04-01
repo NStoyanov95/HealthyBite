@@ -43,6 +43,7 @@ export class LoginComponent {
       error: (err) => {
         console.error(err.error['error']);
         this.errorMessage = err.error['error'];
+        this.loginForm.get('password')?.reset();
       },
     });
   }

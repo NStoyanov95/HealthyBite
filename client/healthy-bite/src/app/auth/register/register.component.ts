@@ -55,6 +55,8 @@ export class RegisterComponent {
       error: (err) => {
         console.error(err.error['error']);
         this.errorMessage = err.error['error'];
+        this.registerForm.get('passGroup.password')?.reset();
+        this.registerForm.get('passGroup.rePass')?.reset();
       },
     });
   }
