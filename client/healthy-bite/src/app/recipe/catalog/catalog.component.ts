@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/types/recipe';
 import { RecipeService } from '../recipe.service';
 import { FormBuilder } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
@@ -23,15 +23,17 @@ export class CatalogComponent implements OnInit {
   ngOnInit(): void {
     this.loadAllRecipes();
 
-    this.searchSubscription = this.searchForm.valueChanges.subscribe(() => {
-      this.searchHandler();
-    });
+    this.searchSubscription = this.searchForm.valueChanges
+      .pipe(debounceTime(500))
+      .subscribe(() => {
+        this.searchHandler();
+      });
   }
 
   loadAllRecipes() {
     this.recipeService.getAllRecipes().subscribe((data) => {
       this.recipes = data;
-      this.isLoading = false
+      this.isLoading = false;
     });
   }
 
@@ -40,7 +42,7 @@ export class CatalogComponent implements OnInit {
     if (recipeName?.trim()) {
       this.recipeService.searchRecipe(recipeName).subscribe((data) => {
         this.recipes = data;
-      this.isLoading = false
+        this.isLoading = false;
       });
     } else {
       this.loadAllRecipes();
