@@ -37,6 +37,10 @@ export class EditRecipeComponent implements OnInit {
   get ingredientControls() {
     return (this.editRecipeForm.get('ingredients') as FormArray).controls;
   }
+  get ingredients(){
+    return this.editRecipeForm.get('ingredients') as FormArray
+  }
+
 
   addIngredients() {
     const ingredients = this.editRecipeForm.get('ingredients') as FormArray;
@@ -61,6 +65,10 @@ export class EditRecipeComponent implements OnInit {
     recipeData.ingredients.forEach((ingredient) => {
       ingredientsArray.push(this.fb.control(ingredient, Validators.required));
     });
+  }
+
+  deleteIngredient(index:number){
+    this.ingredients.removeAt(index)
   }
 
   editRecipeHandler() {
