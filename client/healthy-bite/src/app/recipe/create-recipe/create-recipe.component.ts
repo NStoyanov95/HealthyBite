@@ -30,12 +30,20 @@ export class CreateRecipeComponent {
     return (this.createRecipeForm.get('ingredients') as FormArray).controls;
   }
 
+  get ingredients(){
+    return this.createRecipeForm.get('ingredients') as FormArray
+  }
+
   addIngredients() {
     const ingredients = this.createRecipeForm.get('ingredients') as FormArray;
     if (ingredients.length >= 9) {
       return;
     }
     ingredients.push(this.fb.control('', Validators.required));
+  }
+
+  deleteIngredient(index:number){
+    this.ingredients.removeAt(index)
   }
   createRecipeHandler() {
     if (this.createRecipeForm.invalid) {
