@@ -39,6 +39,7 @@
     border: 1px solid #ccc;
     border-radius: 25px;
     box-sizing: border-box;
+    margin: 2px;
   }
   
   .input-container textarea {
@@ -85,6 +86,15 @@
   button:hover {
     background-color: #ff8c00;
   }
+
+  .delete-ingredient{
+    background-color: rgba(255, 57, 57, 0.982);
+  }
+
+  .delete-ingredient:hover{
+    background-color: red;
+  }
+  
   
   .error{
     font-size: 13px ;

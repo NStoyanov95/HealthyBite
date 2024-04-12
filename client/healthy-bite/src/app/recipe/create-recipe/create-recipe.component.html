@@ -41,6 +41,7 @@
           *ngFor="let ingredientControl of ingredientControls; let i = index">
           <label>Ingredient {{i + 1}}</label>
           <input type="text" [formControlName]="i" appTrimInput>
+          <button class="delete-ingredient">Delete ingredient</button>
           <ng-container
             *ngIf="ingredientControl.touched && ingredientControl.invalid">
             <p class="error">Ingredients
