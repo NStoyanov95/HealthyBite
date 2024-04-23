@@ -15,6 +15,10 @@ const routes: Routes = [
       import('./recipe/recipe.module').then((m) => m.RecipeModule),
   },
   {
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
+  },
+  {
     path: '404',
     component: NotFoundComponent,
   },
