@@ -1,41 +1,44 @@
 .header {
-    max-width: 1044px;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0px 12px 11px -19px black;
-  }
-  
-  .logo {
-    font-size: 1.8rem;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .nav {
-    display: flex;
-    gap: 20px;
-  }
-  
-  button {
-    font-size: 1rem;
-    color: black;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    color: #27ae60;
-    font-weight: bold;
-  }
+  max-width: 1044px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0px 12px 11px -19px black;
+}
 
-  .active{
-    color: #27ae60;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
+.logo {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  font-size: 1rem;
+  color: black;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #27ae60;
+  font-weight: bold;
+}
+.blog-btn {
+  color: orange;
+  font-weight: bold;
+}
+
+.active {
+  color: #27ae60;
+  font-weight: bold;
+  text-decoration: underline;
+}
