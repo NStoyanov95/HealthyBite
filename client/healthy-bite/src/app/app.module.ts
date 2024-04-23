@@ -13,6 +13,7 @@ import { RecipeModule } from './recipe/recipe.module';
 import { AppInterceptorProvider } from './app.interceptor';
 import { CoreModule } from './core/core.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BlogModule } from './blog/blog.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotFoundComponent],
@@ -25,6 +26,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AuthModule,
     ReactiveFormsModule,
     CoreModule,
+    BlogModule,
   ],
   providers: [AppInterceptorProvider],
   bootstrap: [AppComponent],
