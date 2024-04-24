@@ -1,0 +1,25 @@
+.blog-card {
+  flex: 0 0 auto;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.content {
+  padding: 15px;
+}
+.title {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 10px 0;
+}
+.description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
