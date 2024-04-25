@@ -1,4 +1,4 @@
-export interface BLog {
+export interface BLogTheme {
   _id: string;
   recipeTitle: string;
   imageUrl: string;
