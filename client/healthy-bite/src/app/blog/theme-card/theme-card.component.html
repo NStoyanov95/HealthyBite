@@ -1,9 +1,7 @@
 <div class="blog-card">
-    <img src="https://via.placeholder.com/300x200" alt="Blog Image">
+    <img src="{{theme?.imageUrl}}" alt="Blog Image">
     <div class="content">
-        <h3 class="title">Blog Title 1</h3>
-        <p class="description">This is a short description of the blog post.
-            It's concise and to the point, providing a teaser of the
-            content.</p>
+        <h3 class="title">{{theme?.title}}</h3>
+        <p class="description">{{theme?.shortDescription}}</p>
     </div>
 </div>
