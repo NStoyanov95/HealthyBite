@@ -1,5 +1,7 @@
 <app-mini-navbar />
 <div class="container">
-    <app-theme-card />
+    <div class="theme-card" *ngFor="let theme of themes">
+        <app-theme-card [theme]="theme" />
+    </div>
 
 </div>
