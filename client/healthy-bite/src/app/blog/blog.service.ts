@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BLogTheme } from '../types/blog';
+import { BlogTheme } from '../types/blog';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,7 @@ import { BLogTheme } from '../types/blog';
 export class BlogService {
   constructor(private http: HttpClient) {}
 
-  createTheme(themeData: BLogTheme) {
-    return this.http.post<BLogTheme>(`/api/blog/create`, { themeData });
+  createTheme(themeData: BlogTheme) {
+    return this.http.post<BlogTheme>(`/api/blog/create`, { themeData });
   }
 }

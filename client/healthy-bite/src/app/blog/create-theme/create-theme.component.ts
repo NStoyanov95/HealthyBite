@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { BLogTheme } from 'src/app/types/blog';
+import { BlogTheme } from 'src/app/types/blog';
 import { BlogService } from '../blog.service';
 import { Router } from '@angular/router';
 
@@ -17,8 +17,8 @@ export class CreateThemeComponent {
   ) {}
 
   createThemeForm = this.fb.group({
-    themeTitle: ['', Validators.required],
-    themeImage: ['', Validators.required],
+    title: ['', Validators.required],
+    imageUrl: ['', Validators.required],
     shortDescription: ['', Validators.required],
     description: ['', Validators.required],
   });
@@ -28,7 +28,9 @@ export class CreateThemeComponent {
       return;
     }
 
-    const themeData = this.createThemeForm.value as BLogTheme;
+    const themeData = this.createThemeForm.value as BlogTheme;
+    console.log(themeData);
+
     this.blogService.createTheme(themeData).subscribe({
       next: (data) => {
         this.createThemeForm.reset();
