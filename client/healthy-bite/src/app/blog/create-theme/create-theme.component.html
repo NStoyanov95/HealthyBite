@@ -1,2 +1,27 @@
 <app-mini-navbar />
-<p>create-theme works!</p>
+<div class="container">
+    <div class="form-container">
+        <form>
+            <h2>Create Theme</h2>
+            <div class="input-container">
+                <label for="theme-title">Theme Title:</label>
+                <input type="text" id="theme-title" name="themeTitle">
+            </div>
+            <div class="input-container">
+                <label for="theme-image-url">Theme Image URL:</label>
+                <input type="url" id="theme-image-url" name="themeImageUrl">
+            </div>
+            <div class="input-container">
+                <label for="short-description">Short Description:</label>
+                <textarea id="short-description" name="shortDescription"
+                    rows="3"></textarea>
+            </div>
+            <div class="input-container">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"
+                    rows="10"></textarea>
+            </div>
+            <button type="submit">Submit Theme</button>
+        </form>
+    </div>
+</div>
