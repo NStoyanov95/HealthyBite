@@ -12,7 +12,7 @@ import { UserService } from 'src/app/auth/user.service';
 @Injectable({ providedIn: 'root' })
 export class AuthActivate implements CanActivate {
   constructor(private userService: UserService, private router: Router) {}
- 
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
