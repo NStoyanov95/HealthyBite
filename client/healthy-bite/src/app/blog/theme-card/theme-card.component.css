@@ -4,6 +4,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
+  cursor: pointer;
 }
 .blog-card img {
   width: 100%;
