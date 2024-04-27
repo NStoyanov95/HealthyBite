@@ -6,6 +6,7 @@ import { ThemeCardComponent } from './theme-card/theme-card.component';
 import { MiniNavbarComponent } from './mini-navbar/mini-navbar.component';
 import { CreateThemeComponent } from './create-theme/create-theme.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ThemeDetailsComponent } from './theme-details/theme-details.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ThemeCardComponent,
     MiniNavbarComponent,
     CreateThemeComponent,
+    ThemeDetailsComponent,
   ],
   imports: [CommonModule, BlogRoutingModule, ReactiveFormsModule],
 })
