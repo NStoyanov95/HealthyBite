@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ThemesComponent } from './themes/themes.component';
 import { CreateThemeComponent } from './create-theme/create-theme.component';
+import { ThemeDetailsComponent } from './theme-details/theme-details.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: ThemesComponent,
   },
   {
-    path: 'create-theme',
+    path: 'theme-create',
     component: CreateThemeComponent,
+  },
+  {
+    path: 'theme-details',
+    component: ThemeDetailsComponent,
   },
 ];
 
