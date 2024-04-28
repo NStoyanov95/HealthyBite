@@ -1,0 +1,34 @@
+h1 {
+  text-align: center;
+  padding: 5px;
+}
+.blog-card {
+  background-color: #ffa50014;
+  width: 90%;
+  margin: 0 auto;
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.description-container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 20px;
+  padding: 10px;
+  margin: 0 auto;
+  box-shadow: 0 0 13px -7px #a6a6a6;
+}
+.description-container p {
+  max-width: 55ch;
+  text-align: left;
+  font-size: 1.2em;
+}
+.blog-image {
+  max-width: 50%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
