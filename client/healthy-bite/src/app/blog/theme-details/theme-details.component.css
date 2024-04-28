@@ -1,12 +1,24 @@
-h1 {
+h2 {
   text-align: center;
   padding: 5px;
 }
 .blog-card {
   background-color: #ffa50014;
-  width: 90%;
+  width: 70%;
   margin: 0 auto;
 }
+.additional-info {
+  background-color: rgba(200, 199, 199, 0.119);
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  height: 1.6em;
+  border-radius: 5px;
+  color: rgb(91, 91, 91);
+}
+
 .image-container {
   display: flex;
   justify-content: center;
