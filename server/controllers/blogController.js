@@ -12,6 +12,16 @@ router.get("/themes", async (req, res) => {
   }
 });
 
+router.get("/theme-details/:themeId", async (req, res) => {
+  const themeId = req.params.themeId;
+  try {
+    const theme = await blogService.getOne(themeId);
+    return res.json(theme);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
 router.post("/create", async (req, res) => {
   try {
     const themeData = req.body.themeData;
